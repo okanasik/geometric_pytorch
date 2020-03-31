@@ -1,0 +1,4 @@
+class AgentType():
+    POLICE = "POLICE"
+    FIREBRIGADE = "FIREBRIGADE"
+    AMBULANCE = "AMBULANCE"
