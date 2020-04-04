@@ -1,15 +1,16 @@
-from torch_geometric.data import Dataset
-from torch_geometric.data import Data
+import json
 import os
 import os.path as osp
+import random
 from zipfile import ZipFile
-import json
+
+import matplotlib.pyplot as plt
+import networkx as nx
 import torch
 from agent_type import AgentType
-import networkx as nx
+from torch_geometric.data import Data
+from torch_geometric.data import Dataset
 from torch_geometric.utils.convert import to_networkx
-import matplotlib.pyplot as plt
-import random
 
 
 class RescueDataset(Dataset):
@@ -50,6 +51,12 @@ class RescueDataset(Dataset):
     @property
     def processed_file_names(self):
         return ["data.pt", "pre_filter.pt", "pre_transform.pt"]
+
+    @property
+    def num_classes(self):
+        r"""The number of classes in the dataset."""
+        data = self.get(0)
+        return data.x.size(0)+1
 
     def len(self):
         count = 0
