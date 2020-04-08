@@ -55,8 +55,8 @@ class RescueDataset(Dataset):
     @property
     def num_classes(self):
         r"""The number of classes in the dataset."""
-        data = self.get(0)
-        return data.x.size(0)+1
+        # whether node is selected as target or not
+        return 2
 
     def len(self):
         count = 0
@@ -126,6 +126,7 @@ class RescueDataset(Dataset):
             json.dump(self.metadata, json_file)
 
     def create_graph_data(self, json_data):
+        null_node_id = self.add_null_node(json_data)
         data_list = []
         node_indexes, node_ids = self.create_node_indexes(json_data["graph"])
         edge_indexes, edge_attr = self.create_edges(json_data["graph"], node_indexes)
@@ -133,6 +134,7 @@ class RescueDataset(Dataset):
 
         agent_id = json_data["agent"]["agentId"]
         agent_pos_id = self.get_agent_pos_id(json_data, agent_id, self.get_agent_list_name(json_data["agent"]["agentType"]))
+        last_agent_pos_id = agent_pos_id
 
         ambulance_pos_dict = self.create_agent_pos_dict(json_data["ambulances"])
         firebrigade_pos_dict = self.create_agent_pos_dict(json_data["firebrigades"])
@@ -144,6 +146,9 @@ class RescueDataset(Dataset):
 
         civ_pos_dict = {} # civ_id -> pos_id
         civ_node_counts = {} # pos_id -> count
+
+        y_val = torch.zeros(len(node_ids), dtype=torch.long) # set class of each node to 0
+        last_target_id = None
 
         # feature row: static_features, dynamic_features
         # static_features: is_refuge, is_gasstation, is_building, area*floors(volume)
@@ -212,7 +217,11 @@ class RescueDataset(Dataset):
                 node_idx = node_indexes[int(node_id_str)]
                 node = nodes[node_id_str]
 
-                # set agent position
+                # reset previous agent position
+                if node_id_str == str(last_agent_pos_id):
+                    x_features[node_idx][4] = 0
+
+                # set current agent position
                 if node_id_str == str(agent_pos_id):
                     x_features[node_idx][4] = 1
 
@@ -242,11 +251,20 @@ class RescueDataset(Dataset):
                 if node_id in civ_node_counts:
                     x_features[node_idx][11] = civ_node_counts[node_id]
 
-            y_val = len(node_ids)
-            if frame["action"]["type"] != "NULL":
-                y_val = node_indexes[frame["action"]["targetId"]]
+            last_agent_pos_id = agent_pos_id
 
-            frame_data = Data(x=x_features.clone(), edge_index=edge_indexes, edge_attr=edge_attr, y=y_val, pos=node_poses)
+            # reset previous node target
+            if last_target_id is not None:
+                y_val[last_target_id] = 0
+
+            if frame["action"]["type"] == "NULL":
+                last_target_id = node_indexes[null_node_id]
+                y_val[last_target_id] = 1
+            else:
+                last_target_id = node_indexes[frame["action"]["targetId"]]
+                y_val[last_target_id] = 1
+
+            frame_data = Data(x=x_features.clone(), edge_index=edge_indexes, edge_attr=edge_attr, y=y_val.clone(), pos=node_poses)
             data_list.append(frame_data)
 
         return data_list
@@ -317,7 +335,7 @@ class RescueDataset(Dataset):
     @staticmethod
     def create_edges(graph, node_indexes):
         edge_indexes = torch.empty(2, len(graph["edges"]), dtype=torch.long)
-        edge_attr = torch.empty(len(graph["edges"]), dtype=torch.int32)
+        edge_attr = torch.empty(len(graph["edges"]), dtype=torch.float)
         idx = 0
         for edge in graph["edges"]:
             edge_attr[idx] = edge["weight"]
@@ -343,6 +361,20 @@ class RescueDataset(Dataset):
         json_object = json.loads(json_data)
         return json_object
 
+    @staticmethod
+    def add_null_node(json_data):
+        # find empty node id
+        null_id = 0
+        while str(null_id) in json_data["graph"]["nodes"]:
+            null_id += 1
+        # add null node as a building with dummy values
+        json_data["graph"]["nodes"][str(null_id)] = {"area":1, "floors":1, "fieryness":0, "brokennes":0, "id": null_id, "type": "BUILDING", "x": 0, "y": 0}
+        # add edges between each node and null node
+        for node_id in json_data["graph"]["nodes"]:
+            json_data["graph"]["edges"].append({"from": int(node_id), "to": null_id, "weight": 1})
+            json_data["graph"]["edges"].append({"from": null_id, "to": int(node_id), "weight": 1})
+
+        return null_id
 
 def visualize(graphdata):
     nxgraph = to_networkx(graphdata)
@@ -352,4 +384,7 @@ def visualize(graphdata):
 
 if __name__ == "__main__":
     dataset = RescueDataset("/home/okan/rescuesim/rcrs-server/dataset", "firebrigade", "robocup2019", "Kobe1", "ait")
-    print(dataset[1001])
+    # print(dataset[1001])
+    print(len(dataset))
+    print(dataset[10])
+    print(dataset.num_classes)
