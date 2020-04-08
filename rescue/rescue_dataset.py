@@ -14,13 +14,14 @@ from torch_geometric.utils.convert import to_networkx
 
 
 class RescueDataset(Dataset):
-    def __init__(self, root, agent_type, comp=None, scenario=None, team=None, transform=None, pre_transform=None):
+    def __init__(self, root, agent_type, comp=None, scenario=None, team=None, node_classification=False, transform=None, pre_transform=None):
         self.comp = comp
         self.scenario = scenario
         self.team = team
         self.agent_type = agent_type
         self.cache = {}
         self.max_cache_size = 100
+        self.node_classification = node_classification
         super(RescueDataset, self).__init__(root, transform, pre_transform)
 
     @property
@@ -56,7 +57,11 @@ class RescueDataset(Dataset):
     def num_classes(self):
         r"""The number of classes in the dataset."""
         # whether node is selected as target or not
-        return 2
+        if self.node_classification:
+            return 2
+        else:
+            data = self.get(0)
+            return data.x.size(0)
 
     def len(self):
         count = 0
@@ -147,8 +152,11 @@ class RescueDataset(Dataset):
         civ_pos_dict = {} # civ_id -> pos_id
         civ_node_counts = {} # pos_id -> count
 
-        y_val = torch.zeros(len(node_ids), dtype=torch.long) # set class of each node to 0
-        last_target_id = None
+        if self.node_classification:
+            y_val = torch.zeros(len(node_ids), dtype=torch.long) # set class of each node to 0
+            last_target_id = None
+        else:
+            y_val = torch.tensor([0], dtype=torch.long) # the class of the target
 
         # feature row: static_features, dynamic_features
         # static_features: is_refuge, is_gasstation, is_building, area*floors(volume)
@@ -254,15 +262,21 @@ class RescueDataset(Dataset):
             last_agent_pos_id = agent_pos_id
 
             # reset previous node target
-            if last_target_id is not None:
-                y_val[last_target_id] = 0
+            if self.node_classification:
+                if last_target_id is not None:
+                    y_val[last_target_id] = 0
 
-            if frame["action"]["type"] == "NULL":
-                last_target_id = node_indexes[null_node_id]
-                y_val[last_target_id] = 1
+                if frame["action"]["type"] == "NULL":
+                    last_target_id = node_indexes[null_node_id]
+                    y_val[last_target_id] = 1
+                else:
+                    last_target_id = node_indexes[frame["action"]["targetId"]]
+                    y_val[last_target_id] = 1
             else:
-                last_target_id = node_indexes[frame["action"]["targetId"]]
-                y_val[last_target_id] = 1
+                if frame["action"]["type"] == "NULL":
+                    y_val[0] = node_indexes[null_node_id]
+                else:
+                    y_val[0] = node_indexes[frame["action"]["targetId"]]
 
             frame_data = Data(x=x_features.clone(), edge_index=edge_indexes, edge_attr=edge_attr, y=y_val.clone(), pos=node_poses)
             data_list.append(frame_data)

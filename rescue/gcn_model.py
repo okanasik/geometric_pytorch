@@ -1,7 +1,6 @@
 import torch
 from torch_geometric.nn import GCNConv
 import torch.nn.functional as F
-from torch_geometric.nn import global_mean_pool as gap, global_max_pool as gmp
 
 
 class GCNNet(torch.nn.Module):
