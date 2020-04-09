@@ -306,8 +306,8 @@ class RescueDataset(Dataset):
 
         for class_idx in class_count:
             class_count[class_idx] = class_count[class_idx] / total_classes
-        return class_count
 
+        return {k:v for k, v in sorted(class_count.items(), key=lambda item: item[1], reverse=True)}
 
     @staticmethod
     def get_agent_list_name(agent_type):
@@ -424,7 +424,7 @@ def visualize(graphdata):
 
 if __name__ == "__main__":
     dataset = RescueDataset("/home/okan/rescuesim/rcrs-server/dataset", "firebrigade", comp="robocup2019",
-                            scenario="Kobe1", team="ait", node_classification=False)
+                            scenario="test2", team="ait", node_classification=False)
     print(dataset.calculate_class_distribution())
     # print(dataset[1001])
     print(len(dataset))
