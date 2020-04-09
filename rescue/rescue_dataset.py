@@ -283,6 +283,32 @@ class RescueDataset(Dataset):
 
         return data_list
 
+    def calculate_class_distribution(self):
+        class_count = {}
+        if self.node_classification:
+            class_count = {0:0, 1:0}
+            for i in range(self.len()):
+                data = self.get(i)
+                for class_idx in data.y:
+                    class_count[class_idx.item()] += 1
+        else:
+            for i in range(self.len()):
+                data = self.get(i)
+                if data.y.item() in class_count:
+                    class_count[data.y.item()] += 1
+                else:
+                    class_count[data.y.item()] = 1
+
+        # normalize
+        total_classes = 0
+        for class_idx in class_count:
+            total_classes += class_count[class_idx]
+
+        for class_idx in class_count:
+            class_count[class_idx] = class_count[class_idx] / total_classes
+        return class_count
+
+
     @staticmethod
     def get_agent_list_name(agent_type):
         if agent_type == AgentType.AMBULANCE:
@@ -397,7 +423,9 @@ def visualize(graphdata):
     plt.show()
 
 if __name__ == "__main__":
-    dataset = RescueDataset("/home/okan/rescuesim/rcrs-server/dataset", "firebrigade", "robocup2019", "Kobe1", "ait")
+    dataset = RescueDataset("/home/okan/rescuesim/rcrs-server/dataset", "firebrigade", comp="robocup2019",
+                            scenario="Kobe1", team="ait", node_classification=False)
+    print(dataset.calculate_class_distribution())
     # print(dataset[1001])
     print(len(dataset))
     print(dataset[10])
