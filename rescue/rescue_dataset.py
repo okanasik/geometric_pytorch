@@ -3,18 +3,16 @@ import os
 import os.path as osp
 import random
 from zipfile import ZipFile
-
-import matplotlib.pyplot as plt
-import networkx as nx
 import torch
 from agent_type import AgentType
 from torch_geometric.data import Data
 from torch_geometric.data import Dataset
-from torch_geometric.utils.convert import to_networkx
+import utils
 
 
 class RescueDataset(Dataset):
-    def __init__(self, root, agent_type, comp=None, scenario=None, team=None, node_classification=False, transform=None, pre_transform=None):
+    def __init__(self, root, agent_type, comp=None, scenario=None, team=None, node_classification=False,
+                 start_datetime=None, end_datetime=None, transform=None, pre_transform=None):
         self.comp = comp
         self.scenario = scenario
         self.team = team
@@ -22,6 +20,9 @@ class RescueDataset(Dataset):
         self.cache = {}
         self.max_cache_size = 100
         self.node_classification = node_classification
+        self.start_datetime = start_datetime
+        self.end_datetime = end_datetime
+        self.metadata = {}
         super(RescueDataset, self).__init__(root, transform, pre_transform)
 
     @property
@@ -37,13 +38,33 @@ class RescueDataset(Dataset):
         return pattern
 
     @property
-    def metadata_filename(self):
-        return self.dataset_pattern + "_metadata.json"
-
-    @property
     def raw_file_names(self):
-        filenames = [filename for filename in os.listdir(self.raw_dir) if self.dataset_pattern in filename and ".zip" in filename]
+        filenames = [filename for filename in os.listdir(self.raw_dir) if self.dataset_pattern in filename and filename[-3:] == "zip" and
+                     self.is_datetime_valid(self.start_datetime, self.end_datetime, filename)]
         return sorted(filenames)
+
+    @staticmethod
+    def is_datetime_valid(start_datetime, end_datetime, filename):
+        file_datetime = filename[filename.rfind('_')+1:filename.rfind('.')]
+        file_datetime = utils.convert_to_datetime(file_datetime)
+
+        if start_datetime:
+            start_datetime = utils.convert_to_datetime(start_datetime)
+            diff = file_datetime - start_datetime
+            # note that the second is inclusive
+            if diff.total_seconds() < 0:
+                return False
+
+        if end_datetime:
+            end_datetime = utils.convert_to_datetime(end_datetime)
+            diff = end_datetime - file_datetime
+            # note that the second is inclusive
+            if diff.total_seconds() < 0:
+                return False
+
+        return True
+
+
 
     @property
     def raw_dir(self):
@@ -111,24 +132,28 @@ class RescueDataset(Dataset):
         self.cache[filename] = data_list
         return data_list
 
-
     def get_num_graph(self, json_data):
-        return len(json_data["frames"])
+        # remove the first 3 frames
+        return len(json_data["frames"])-3
 
     def process_metadata(self):
-        self.metadata = {}
-        full_name = osp.join(self.root, self.metadata_filename)
-        if osp.exists(full_name):
-            with open(full_name) as json_file:
-                self.metadata = json.load(json_file)
+        for file_name in self.raw_file_names:
+            metadata_filename = file_name.replace('.zip', '_metadata.json')
+            metadata_filename = osp.join(self.root, metadata_filename)
+            if osp.exists(metadata_filename):
+                with open(metadata_filename) as json_file:
+                    self.metadata[file_name] = json.load(json_file)
 
     def add_metadata(self, filename, data_key, data_value):
-        self.metadata[filename] = {}
+        if filename not in self.metadata:
+            self.metadata[filename] = {}
         self.metadata[filename][data_key] = data_value
 
     def save_metadata(self):
-        with open(osp.join(self.root, self.metadata_filename), "w") as json_file:
-            json.dump(self.metadata, json_file)
+        for filename_key in self.metadata:
+            metadata_filename = filename_key.replace('.zip', '_metadata.json')
+            with open(osp.join(self.root, metadata_filename), "w") as json_file:
+                json.dump(self.metadata[filename_key], json_file)
 
     def create_graph_data(self, json_data):
         null_node_id = self.add_null_node(json_data)
@@ -139,30 +164,34 @@ class RescueDataset(Dataset):
 
         agent_id = json_data["agent"]["agentId"]
         agent_pos_id = self.get_agent_pos_id(json_data, agent_id, self.get_agent_list_name(json_data["agent"]["agentType"]))
-        last_agent_pos_id = agent_pos_id
 
         ambulance_pos_dict = self.create_agent_pos_dict(json_data["ambulances"])
         firebrigade_pos_dict = self.create_agent_pos_dict(json_data["firebrigades"])
         police_pos_dict = self.create_agent_pos_dict(json_data["polices"])
+        civ_pos_dict = {}  # civ_id -> pos_id
 
-        fb_node_counts = self.get_agent_counts(ambulance_pos_dict)
         amb_node_counts = self.get_agent_counts(firebrigade_pos_dict)
+        fb_node_counts = self.get_agent_counts(ambulance_pos_dict)
         police_node_counts = self.get_agent_counts(police_pos_dict)
-
-        civ_pos_dict = {} # civ_id -> pos_id
         civ_node_counts = {} # pos_id -> count
 
+        last_amb_count_poses = amb_node_counts.keys()
+        last_fb_count_poses = fb_node_counts.keys()
+        last_police_count_poses = police_node_counts.keys()
+        last_civ_count_poses = civ_node_counts.keys()
+
+        last_target_id = None
         if self.node_classification:
             y_val = torch.zeros(len(node_ids), dtype=torch.long) # set class of each node to 0
-            last_target_id = None
         else:
             y_val = torch.tensor([0], dtype=torch.long) # the class of the target
 
-        # feature row: static_features, dynamic_features
+        # feature row: static_features, dynamic_features, new_features
         # static_features: is_refuge, is_gasstation, is_building, area*floors(volume)
         # dynamic_features: is_agent_here, fieryness, brokennes, repair_cost, num_fbs, num_ambs, num_polices, num_civilians
+        # new_features: x pos, y pos
 
-        size_feature = 12
+        size_feature = 14
         x_features = torch.zeros(len(node_ids), size_feature, dtype=torch.float32)
         node_idx = 0
         for node_id in node_ids:
@@ -180,6 +209,7 @@ class RescueDataset(Dataset):
                 x_features[node_idx][2] = 1
 
             if "area" in node:
+                # calculate volumes
                 x_features[node_idx][3] = node["area"]*node["floors"]
 
             # dynamic features
@@ -208,12 +238,23 @@ class RescueDataset(Dataset):
             # num_civilians
             x_features[node_idx][11] = 0
 
+            # x and y position of the node
+            x_features[node_idx][12] = node["x"]
+            x_features[node_idx][13] = node["y"]
+
             node_idx += 1
+
+        last_agent_pos_id = agent_pos_id
 
         # update features and output tensors frame by frame
         for frame in json_data["frames"]:
             nodes = frame["change"]["nodes"]
             agent_pos_id = self.get_agent_pos_id(frame["change"], agent_id, self.get_agent_list_name(json_data["agent"]["agentType"]))
+
+            if last_agent_pos_id is not None:
+                x_features[node_indexes[last_agent_pos_id]][4] = 0
+
+            last_agent_pos_id = agent_pos_id
 
             # update agent positions
             self.update_agent_positions(ambulance_pos_dict, amb_node_counts, frame["change"]["ambulances"])
@@ -221,13 +262,21 @@ class RescueDataset(Dataset):
             self.update_agent_positions(police_pos_dict, police_node_counts, frame["change"]["polices"])
             self.update_agent_positions(civ_pos_dict, civ_node_counts, frame["change"]["civilians"])
 
+            # reset previous count poses
+            self.reset_count_poses(last_amb_count_poses, x_features, node_indexes, 8)
+            self.reset_count_poses(last_fb_count_poses, x_features, node_indexes, 9)
+            self.reset_count_poses(last_police_count_poses, x_features, node_indexes, 10)
+            self.reset_count_poses(last_civ_count_poses, x_features, node_indexes, 11)
+
+            last_amb_count_poses = amb_node_counts.keys()
+            last_fb_count_poses = fb_node_counts.keys()
+            last_police_count_poses = police_node_counts.keys()
+            last_civ_count_poses = civ_node_counts.keys()
+
+
             for node_id_str in nodes:
                 node_idx = node_indexes[int(node_id_str)]
                 node = nodes[node_id_str]
-
-                # reset previous agent position
-                if node_id_str == str(last_agent_pos_id):
-                    x_features[node_idx][4] = 0
 
                 # set current agent position
                 if node_id_str == str(agent_pos_id):
@@ -259,8 +308,6 @@ class RescueDataset(Dataset):
                 if node_id in civ_node_counts:
                     x_features[node_idx][11] = civ_node_counts[node_id]
 
-            last_agent_pos_id = agent_pos_id
-
             # reset previous node target
             if self.node_classification:
                 if last_target_id is not None:
@@ -278,10 +325,22 @@ class RescueDataset(Dataset):
                 else:
                     y_val[0] = node_indexes[frame["action"]["targetId"]]
 
+            # skip first 3 time steps
+            if frame["time"] <= 3:
+                continue
+
             frame_data = Data(x=x_features.clone(), edge_index=edge_indexes, edge_attr=edge_attr, y=y_val.clone(), pos=node_poses)
             data_list.append(frame_data)
 
         return data_list
+
+    @staticmethod
+    def reset_count_poses(last_pos_ids, x_features, node_indexes, col_idx):
+        for pos_id in last_pos_ids:
+            # only civilian in a building or on road
+            # we do not handle the case where the civilian is being carried by an ambulance
+            if pos_id in node_indexes:
+                x_features[node_indexes[pos_id]][col_idx] = 0
 
     def calculate_class_distribution(self):
         class_count = {}
@@ -410,21 +469,15 @@ class RescueDataset(Dataset):
         # add null node as a building with dummy values
         json_data["graph"]["nodes"][str(null_id)] = {"area":1, "floors":1, "fieryness":0, "brokennes":0, "id": null_id, "type": "BUILDING", "x": 0, "y": 0}
         # add edges between each node and null node
-        for node_id in json_data["graph"]["nodes"]:
-            json_data["graph"]["edges"].append({"from": int(node_id), "to": null_id, "weight": 1})
-            json_data["graph"]["edges"].append({"from": null_id, "to": int(node_id), "weight": 1})
-
+        # for node_id in json_data["graph"]["nodes"]:
+        #     json_data["graph"]["edges"].append({"from": int(node_id), "to": null_id, "weight": 1})
+        #     json_data["graph"]["edges"].append({"from": null_id, "to": int(node_id), "weight": 1})
         return null_id
 
-def visualize(graphdata):
-    nxgraph = to_networkx(graphdata)
-    plt.figure(1, figsize=(24,20))
-    nx.draw(nxgraph, cmap=plt.get_cmap("Set1"), node_size=35, linewidths=6)
-    plt.show()
 
 if __name__ == "__main__":
     dataset = RescueDataset("/home/okan/rescuesim/rcrs-server/dataset", "firebrigade", comp="robocup2019",
-                            scenario="test2", team="ait", node_classification=False)
+                            scenario="test3", team="ait", node_classification=False)
     print(dataset.calculate_class_distribution())
     # print(dataset[1001])
     print(len(dataset))
