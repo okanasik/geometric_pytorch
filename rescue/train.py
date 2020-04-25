@@ -7,7 +7,7 @@ from gcn_model import GCNNet
 from agnn_model import AGNNNet
 
 # parameters
-node_classification = False
+node_classification = True
 batch_size = 64
 
 dataset = RescueDataset("/home/okan/rescuesim/rcrs-server/dataset", "firebrigade", comp="robocup2019", scenario="test3",
@@ -19,17 +19,18 @@ if node_classification:
 else:
     test_loader = DataLoader(dataset, batch_size=batch_size, shuffle=False)
 
+
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-# model = GCNNet(dataset.num_features, dataset.num_classes).to(device)
+model = GCNNet(dataset.num_features, dataset.num_classes)
 # optimizer = torch.optim.Adam([
 #     dict(params=model.reg_params, weight_decay=5e-4),
 #     dict(params=model.non_reg_params, weight_decay=0)
 # ], lr=0.01)
 
-model = TopKNet(dataset.num_features, dataset.num_classes)
+# model = TopKNet(dataset.num_features, dataset.num_classes)
 # model.load_state_dict(torch.load('./topk_model_test4.pth'))
 model = model.to(device)
-optimizer = torch.optim.Adam(model.parameters(), lr=0.005)
+optimizer = torch.optim.Adam(model.parameters(), lr=0.001, weight_decay=5e-4)
 
 # model = AGNNNet(dataset.num_features, dataset.num_classes).to(device)
 # optimizer = torch.optim.Adam(model.parameters(), lr=0.01, weight_decay=5e-4)
@@ -41,7 +42,11 @@ def train():
         optimizer.zero_grad()
         data = data.to(device)
         output = model(data)
-        loss = F.nll_loss(output, data.y)
+        if node_classification:
+            class_weight = torch.tensor([data.num_graphs/data.num_nodes, (data.num_nodes-data.num_graphs)/data.num_nodes], device=device)
+            loss = F.nll_loss(output, data.y, weight=class_weight)
+        else:
+            loss = F.nll_loss(output, data.y)
         loss.backward()
         total_loss += loss.item()
         optimizer.step()
@@ -68,7 +73,7 @@ def test():
 for epoch in range(1, 1001):
     loss = train()
     accuracy = test()
-    log = 'Epoch: {:03d}, Train Loss: {:.8f} Accuracy: {:.8f}'
+    log = 'Epoch: {:03d}, Train Loss: {:.8f} Train Accuracy: {:.8f}'
     print(log.format(epoch, loss, accuracy))
 
 # accuracy = test()
