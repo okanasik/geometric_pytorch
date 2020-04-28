@@ -10,7 +10,7 @@ from agnn_model import AGNNNet
 node_classification = True
 batch_size = 64
 
-dataset = RescueDataset("/home/okan/rescuesim/rcrs-server/dataset", "firebrigade", comp="robocup2019", scenario="test3",
+dataset = RescueDataset("/home/okan/rescuesim/rcrs-server/dataset", "firebrigade", comp="robocup2019", scenario="test2",
                         team="ait", node_classification=node_classification)
 
 train_loader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
