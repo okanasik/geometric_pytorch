@@ -12,7 +12,7 @@ import utils
 
 class RescueDataset(Dataset):
     def __init__(self, root, agent_type, comp=None, scenario=None, team=None, node_classification=False,
-                 start_datetime=None, end_datetime=None, transform=None, pre_transform=None):
+                 start_datetime=None, end_datetime=None, read_info_map=False, transform=None, pre_transform=None):
         self.comp = comp
         self.scenario = scenario
         self.team = team
@@ -23,6 +23,7 @@ class RescueDataset(Dataset):
         self.start_datetime = start_datetime
         self.end_datetime = end_datetime
         self.metadata = {}
+        self.read_info_map = read_info_map
         super(RescueDataset, self).__init__(root, transform, pre_transform)
 
     @property
@@ -329,7 +330,11 @@ class RescueDataset(Dataset):
             if frame["time"] <= 3:
                 continue
 
-            frame_data = Data(x=x_features.clone(), edge_index=edge_indexes, edge_attr=edge_attr, y=y_val.clone(), pos=node_poses)
+            frame_data = Data(x=x_features.clone(), edge_index=edge_indexes, edge_attr=edge_attr,
+                              y=y_val.clone(), pos=node_poses)
+            if self.read_info_map:
+                if 'infoMap' in frame:
+                    frame_data['info_map'] = frame['infoMap']
             data_list.append(frame_data)
 
         return data_list
@@ -477,7 +482,7 @@ class RescueDataset(Dataset):
 
 if __name__ == "__main__":
     dataset = RescueDataset("/home/okan/rescuesim/rcrs-server/dataset", "firebrigade", comp="robocup2019",
-                            scenario="test3", team="ait", node_classification=False)
+                            scenario="test4", team="ait", node_classification=False)
     print(dataset.calculate_class_distribution())
     # print(dataset[1001])
     print(len(dataset))
