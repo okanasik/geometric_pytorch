@@ -9,10 +9,13 @@ class GCNNet(torch.nn.Module):
         self.conv1 = GCNConv(num_features, 128, cached=False, normalize=True)
         self.conv2 = GCNConv(128, 128, cached=False, normalize=True)
         self.conv3 = GCNConv(128, 64, cached=False, normalize=True)
-        self.conv4 = GCNConv(64, num_classes, cached=False, normalize=True)
+        self.conv4 = GCNConv(64, 32, cached=False, normalize=True)
         self.p1 = 0.2
         self.p2 = 0.2
         self.p3 = 0.2
+
+        self.lin1 = torch.nn.Linear(32, 64)
+        self.lin2 = torch.nn.Linear(64, num_classes)
 
         # self.reg_params = self.conv1.parameters()
         # self.non_reg_params = self.conv4.parameters()
@@ -26,4 +29,7 @@ class GCNNet(torch.nn.Module):
         x = F.relu(self.conv3(x, edge_index, edge_weight))
         x = F.dropout(x, p=self.p3, training=self.training)
         x = self.conv4(x, edge_index, edge_weight)
-        return F.log_softmax(x, dim=1)
+        x = self.lin1(F.relu(x))
+        x = self.lin2(F.relu(x))
+        return x
+        # return F.log_softmax(x, dim=1)

@@ -43,8 +43,17 @@ def train():
         data = data.to(device)
         output = model(data)
         if node_classification:
-            class_weight = torch.tensor([data.num_graphs/data.num_nodes, (data.num_nodes-data.num_graphs)/data.num_nodes], device=device)
-            loss = F.nll_loss(output, data.y, weight=class_weight)
+            # class_weight = torch.tensor([data.num_graphs/data.num_nodes, (data.num_nodes-data.num_graphs)/data.num_nodes], device=device)
+            # loss = F.nll_loss(output, data.y, weight=class_weight)
+            output = F.softmax(output, dim=1)
+            y_index = torch.argmax(data.y)
+            y_pos = data.x[y_index,12:14]
+            pos_diff = data.x[:, 12:14]-y_pos
+            pos_diff = pos_diff**2
+            dist = pos_diff.matmul(torch.tensor([1, 1], dtype=torch.float32).to(device))
+            loss1 = (output[:,1]*dist).mean()/data.num_nodes
+            loss2 = output[y_index,0]*data.num_nodes
+            loss = loss1 + loss2
         else:
             loss = F.nll_loss(output, data.y)
         loss.backward()
