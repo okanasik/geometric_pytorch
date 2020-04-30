@@ -8,7 +8,7 @@ from agnn_model import AGNNNet
 from soft_assignment_loss import soft_assignment_loss
 
 # parameters
-node_classification = True
+node_classification = False
 batch_size = 64
 
 dataset = RescueDataset("/home/okan/rescuesim/rcrs-server/dataset", "firebrigade", comp="robocup2019", scenario="test2",
@@ -22,13 +22,13 @@ else:
 
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-model = GCNNet(dataset.num_features, dataset.num_classes)
+# model = GCNNet(dataset.num_features, dataset.num_classes)
 # optimizer = torch.optim.Adam([
 #     dict(params=model.reg_params, weight_decay=5e-4),
 #     dict(params=model.non_reg_params, weight_decay=0)
 # ], lr=0.01)
 
-# model = TopKNet(dataset.num_features, dataset.num_classes)
+model = TopKNet(dataset.num_features, dataset.num_classes)
 # model.load_state_dict(torch.load('./topk_model_test4.pth'))
 model = model.to(device)
 optimizer = torch.optim.Adam(model.parameters(), lr=0.001, weight_decay=5e-4)
@@ -48,7 +48,7 @@ def train():
             loss = F.cross_entropy(output, data.y, weight=class_weight)
             # loss = soft_assignment_loss(output, data, device)
         else:
-            loss = F.nll_loss(output, data.y)
+            loss = F.cross_entropy(output, data.y)
         loss.backward()
         total_loss += loss.item()
         optimizer.step()
