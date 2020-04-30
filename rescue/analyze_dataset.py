@@ -1,5 +1,6 @@
 from rescue_dataset import RescueDataset
 import os.path
+import torch
 
 
 def create_graph_str(data):
@@ -50,9 +51,10 @@ def test_fieryness_target_selection():
 
     num_in_fieryness = 0
     for data_item in dataset:
-        nodes_with_fieryness = data_item.x[:,5].nonzero().view(-1)
-        print(nodes_with_fieryness)
-        print(data_item.y.item())
+        fieryness_values = data_item.x[:,5].view(-1)
+        nodes_with_fieryness = [idx for idx, fieryness in enumerate(fieryness_values) if fieryness >= 1 and fieryness <= 3]
+        # print(nodes_with_fieryness)
+        # print(data_item.y.item())
         if data_item.y.item() in nodes_with_fieryness:
             num_in_fieryness += 1
     print("{:.2f}% of targets from buildings with fieryness".format(100 * (num_in_fieryness / len(dataset))))
@@ -89,5 +91,5 @@ def print_raw_fieryness_and_target():
 if __name__ == "__main__":
     # test_memorization_model()
     # test_random_target_selection()
-    # test_fieryness_target_selection()
-    print_raw_fieryness_and_target()
+    test_fieryness_target_selection()
+    # print_raw_fieryness_and_target()
