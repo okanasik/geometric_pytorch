@@ -34,7 +34,7 @@ def create_node_colors(graph_data):
     fieryness1_color = '#FFD859' # heating
     fieryness2_color = '#EC7325' # burning
     fieryness3_color = '#CB0E0E' # inferno
-    fieryness4_color = '#900C3F' # burnt_down
+    fieryness4_color = '#490620' # burnt_down
 
     for idx, node in enumerate(graph_data.x):
         if node[2].item() == 1:
