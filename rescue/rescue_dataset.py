@@ -482,7 +482,7 @@ class RescueDataset(Dataset):
 
 if __name__ == "__main__":
     dataset = RescueDataset("/home/okan/rescuesim/rcrs-server/dataset", "firebrigade", comp="robocup2019",
-                            scenario="test4", team="ait", node_classification=False)
+                            scenario="test2", team="ait", node_classification=False)
     print(dataset.calculate_class_distribution())
     # print(dataset[1001])
     print(len(dataset))

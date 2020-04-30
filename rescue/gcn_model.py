@@ -6,6 +6,7 @@ import torch.nn.functional as F
 class GCNNet(torch.nn.Module):
     def __init__(self, num_features, num_classes):
         super(GCNNet, self).__init__()
+        self.bn1 = torch.nn.BatchNorm1d(num_features=num_features)
         self.conv1 = GCNConv(num_features, 128, cached=False, normalize=True)
         self.conv2 = GCNConv(128, 128, cached=False, normalize=True)
         self.conv3 = GCNConv(128, 64, cached=False, normalize=True)
@@ -14,7 +15,9 @@ class GCNNet(torch.nn.Module):
         self.p2 = 0.2
         self.p3 = 0.2
 
+        self.bn2 = torch.nn.BatchNorm1d(num_features=32)
         self.lin1 = torch.nn.Linear(32, 64)
+        self.bn3 = torch.nn.BatchNorm1d(num_features=64)
         self.lin2 = torch.nn.Linear(64, num_classes)
 
         # self.reg_params = self.conv1.parameters()
@@ -22,6 +25,7 @@ class GCNNet(torch.nn.Module):
 
     def forward(self, data):
         x, edge_index, edge_weight = data.x, data.edge_index, data.edge_attr
+        x = self.bn1(x)
         x = F.relu(self.conv1(x, edge_index, edge_weight))
         x = F.dropout(x, p=self.p1, training=self.training)
         x = F.relu(self.conv2(x, edge_index, edge_weight))
@@ -29,7 +33,9 @@ class GCNNet(torch.nn.Module):
         x = F.relu(self.conv3(x, edge_index, edge_weight))
         x = F.dropout(x, p=self.p3, training=self.training)
         x = self.conv4(x, edge_index, edge_weight)
+        x = self.bn2(x)
         x = self.lin1(F.relu(x))
+        x = self.bn3(x)
         x = self.lin2(F.relu(x))
         return x
         # return F.log_softmax(x, dim=1)
