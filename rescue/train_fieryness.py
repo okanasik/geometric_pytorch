@@ -14,13 +14,15 @@ batch_size = 1
 dataset = RescueDataset("/home/okan/rescuesim/rcrs-server/dataset", "firebrigade", comp="robocup2019", scenario="test2",
                         team="ait", node_classification=node_classification)
 
-train_loader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
-test_loader = DataLoader(dataset, batch_size=batch_size, shuffle=False)
+test_dataset = RescueDataset("/home/okan/rescuesim/rcrs-server/dataset", "firebrigade", comp="robocup2019", scenario="test3",
+                        team="ait", node_classification=node_classification)
 
+train_loader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
+test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-# model = GCNNet(dataset.num_features, dataset.num_classes)
-model = AGNNNet(dataset.num_features, dataset.num_classes).to(device)
+model = GCNNet(dataset.num_features, dataset.num_classes)
+# model = AGNNNet(dataset.num_features, dataset.num_classes).to(device)
 
 model = model.to(device)
 optimizer = torch.optim.Adam(model.parameters(), lr=0.001, weight_decay=5e-4)
@@ -71,11 +73,13 @@ def test():
 for epoch in range(1, 1001):
     loss = train()
     accuracy, fieryness_ratio = test()
-    log = 'Epoch: {:03d}, Train Loss: {:.8f} Train Accuracy: {:.8f} Fieryness Ratio: {}'
+    log = 'Epoch: {:03d}, Train Loss: {:.8f} Test Accuracy: {:.8f} Fieryness Ratio: {}'
     print(log.format(epoch, loss, accuracy, fieryness_ratio))
+    if epoch % 100 == 0:
+        model_filename = 'gcn_fieryness.pth'
+        torch.save(model.state_dict(), model_filename)
+        print("Model is saved as " + model_filename)
 
 # accuracy = test()
 # log = 'Epoch: {:03d}, Train Loss: {:.8f} Accuracy: {:.8f}'
 # print(log.format(0, 0, accuracy))
-
-# torch.save(model.state_dict(), './topk_model_test4.pth')
