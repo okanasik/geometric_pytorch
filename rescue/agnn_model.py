@@ -7,11 +7,11 @@ class AGNNNet(torch.nn.Module):
     def __init__(self, num_features, num_classes):
         super(AGNNNet, self).__init__()
         self.bn1 = torch.nn.BatchNorm1d(num_features=num_features)
-        self.lin1 = torch.nn.Linear(num_features, 32)
-        self.bn2 = torch.nn.BatchNorm1d(num_features=32)
+        self.lin1 = torch.nn.Linear(num_features, 128)
+        self.bn2 = torch.nn.BatchNorm1d(num_features=128)
         # self.conv1 = AGNNConv(requires_grad=True)
         # self.conv2 = AGNNConv(requires_grad=True)
-        self.lin2 = torch.nn.Linear(32, num_classes)
+        self.lin2 = torch.nn.Linear(128, num_classes)
 
     def forward(self, data):
         x = data.x
