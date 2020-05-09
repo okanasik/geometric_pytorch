@@ -14,13 +14,20 @@ class GCNNet(torch.nn.Module):
         self.conv3 = GCNConv(128, 64, cached=False, normalize=True)
         self.bn4 = torch.nn.BatchNorm1d(num_features=64)
         self.conv4 = GCNConv(64, 32, cached=False, normalize=True)
-        self.p1 = 0.2
-        self.p2 = 0.2
-        self.p3 = 0.2
 
         self.bn5 = torch.nn.BatchNorm1d(num_features=32)
-        self.lin1 = torch.nn.Linear(32, 64)
+        self.conv5 = GCNConv(32, 64, cached=False, normalize=True)
         self.bn6 = torch.nn.BatchNorm1d(num_features=64)
+        self.conv6 = GCNConv(64, 128, cached=False, normalize=True)
+        self.bn7 = torch.nn.BatchNorm1d(num_features=128)
+        self.conv7 = GCNConv(128, 64, cached=False, normalize=True)
+        self.bn8 = torch.nn.BatchNorm1d(num_features=64)
+        self.conv8 = GCNConv(64, 32, cached=False, normalize=True)
+        self.p = 0.5
+
+        self.bn9 = torch.nn.BatchNorm1d(num_features=32)
+        self.lin1 = torch.nn.Linear(32, 64)
+        self.bn10 = torch.nn.BatchNorm1d(num_features=64)
         self.lin2 = torch.nn.Linear(64, num_classes)
 
         # self.reg_params = self.conv1.parameters()
@@ -30,15 +37,21 @@ class GCNNet(torch.nn.Module):
         x, edge_index, edge_weight = data.x, data.edge_index, data.edge_attr
         x = self.bn1(x)
         x = F.relu(self.bn2(self.conv1(x, edge_index, edge_weight)))
-        x = F.dropout(x, p=self.p1, training=self.training)
+        x = F.dropout(x, p=self.p, training=self.training)
         x = F.relu(self.bn3(self.conv2(x, edge_index, edge_weight)))
-        x = F.dropout(x, p=self.p2, training=self.training)
+        x = F.dropout(x, p=self.p, training=self.training)
         x = F.relu(self.bn4(self.conv3(x, edge_index, edge_weight)))
-        x = F.dropout(x, p=self.p3, training=self.training)
-        x = self.conv4(x, edge_index, edge_weight)
-        x = self.bn5(x)
+        x = F.dropout(x, p=self.p, training=self.training)
+        x = F.relu(self.bn5(self.conv4(x, edge_index, edge_weight)))
+        x = F.dropout(x, p=self.p, training=self.training)
+        x = F.relu(self.bn6(self.conv5(x, edge_index, edge_weight)))
+        x = F.dropout(x, p=self.p, training=self.training)
+        x = F.relu(self.bn7(self.conv6(x, edge_index, edge_weight)))
+        x = F.dropout(x, p=self.p, training=self.training)
+        x = F.relu(self.bn8(self.conv7(x, edge_index, edge_weight)))
+        x = self.bn9(self.conv8(x, edge_index, edge_weight))
         x = self.lin1(F.relu(x))
-        x = self.bn6(x)
+        x = self.bn10(x)
         x = self.lin2(F.relu(x))
         return x
         # return F.log_softmax(x, dim=1)
