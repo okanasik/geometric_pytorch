@@ -1,6 +1,6 @@
 import torch
 import torch.nn.functional as F
-from torch_geometric.nn import GraphConv, TopKPooling
+from torch_geometric.nn import GraphConv, TopKPooling, GATConv
 from torch_geometric.nn import global_mean_pool as gap, global_max_pool as gmp
 
 
@@ -8,19 +8,22 @@ class TopKNet(torch.nn.Module):
     def __init__(self, num_features, num_classes):
         super(TopKNet, self).__init__()
         self.bn1 = torch.nn.BatchNorm1d(num_features=num_features)
-        self.conv1 = GraphConv(num_features, 128)
-        self.bn2 = torch.nn.BatchNorm1d(num_features=128)
-        self.pool1 = TopKPooling(128, ratio=0.8)
-        self.conv2 = GraphConv(128, 128)
-        self.bn3 = torch.nn.BatchNorm1d(num_features=128)
-        self.pool2 = TopKPooling(128, ratio=0.8)
-        self.conv3 = GraphConv(128, 128)
-        self.bn4 = torch.nn.BatchNorm1d(num_features=128)
-        self.pool3 = TopKPooling(128, ratio=0.8)
 
-        self.lin1 = torch.nn.Linear(256, 128)
-        self.bn5 = torch.nn.BatchNorm1d(num_features=128)
-        self.lin2 = torch.nn.Linear(128, 128)
+        self.conv1 = GATConv(num_features, 256)
+        self.bn2 = torch.nn.BatchNorm1d(num_features=256)
+        self.pool1 = TopKPooling(256, ratio=0.8)
+
+        self.conv2 = GATConv(256, 256)
+        self.bn3 = torch.nn.BatchNorm1d(num_features=256)
+        self.pool2 = TopKPooling(256, ratio=0.8)
+
+        self.conv3 = GATConv(256, 256)
+        self.bn4 = torch.nn.BatchNorm1d(num_features=256)
+        self.pool3 = TopKPooling(256, ratio=0.8)
+
+        self.lin1 = torch.nn.Linear(512, 256)
+        self.bn5 = torch.nn.BatchNorm1d(num_features=256)
+        self.lin2 = torch.nn.Linear(256, 128)
         self.bn6 = torch.nn.BatchNorm1d(num_features=128)
         self.lin3 = torch.nn.Linear(128, num_classes)
 
