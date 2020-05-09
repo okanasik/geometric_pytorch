@@ -34,15 +34,18 @@ def test_memorization_model():
 
 
 def test_random_target_selection():
-    dataset = RescueDataset("/home/okan/rescuesim/rcrs-server/dataset", "firebrigade", comp="robocup2019",
-                            scenario="test2", team="ait", node_classification=False, read_info_map=True)
+    # dataset = RescueDataset("/home/okan/rescuesim/rcrs-server/dataset", "firebrigade", comp="robocup2019",
+    #                         scenario="test2", team="ait", node_classification=False, read_info_map=True)
+    import train
+    train_dataset, test_dataset = train.get_datasets()
+
     num_random = 0
-    for data_item in dataset:
+    for data_item in train_dataset:
         if 'type' in data_item.info_map:
             if data_item.info_map['type'] == 'random':
                 num_random += 1
 
-    print("{:.2f}% of selection is random".format(100*(num_random/len(dataset))))
+    print("{:.2f}% of selection is random".format(100*(num_random/len(train_dataset))))
 
 
 def test_fieryness_target_selection():
@@ -88,8 +91,61 @@ def print_raw_fieryness_and_target():
     print("{:.2f}% of targets from buildings with fieryness".format(100 * (num_in_fieryness / len(dataset))))
 
 
+def test_null_target_selection():
+    import train
+    train_dataset, test_dataset = train.get_datasets()
+    count_null = 0
+    for idx, data_item in enumerate(train_dataset):
+        # print("graph_{}:{}".format(idx, data_item.y.item()))
+        if data_item.y.item() == 0:
+            count_null += 1
+
+    print("{:.2f}% of targets are null".format(100 * (count_null / len(train_dataset))))
+
+
+def get_notrandom_notnull(train_dataset, test_dataset, node_classification):
+    from inmemory_rescue_dataset import InMemoryRescueDataset
+
+    data_list = []
+    for data_item in train_dataset:
+        if data_item.y.item() == 0:
+            continue
+        if data_item.info_map['type'] == 'random':
+            continue
+
+        data_list.append(data_item)
+
+    for data_item in test_dataset:
+        if data_item.y.item() == 0:
+            continue
+        if data_item.info_map['type'] == 'random':
+            continue
+
+        data_list.append(data_item)
+
+    import random
+    random.shuffle(data_list)
+
+    train_data_list = data_list[:int(0.75*len(data_list))]
+    print(len(train_data_list))
+    test_data_list = data_list[int(0.75*len(data_list)):]
+    print(len(test_data_list))
+
+    return InMemoryRescueDataset(train_data_list, node_classification=node_classification), \
+           InMemoryRescueDataset(test_data_list, node_classification=node_classification)
+
+
+
+
+
 if __name__ == "__main__":
     # test_memorization_model()
     # test_random_target_selection()
-    test_fieryness_target_selection()
+    # test_fieryness_target_selection()
     # print_raw_fieryness_and_target()
+    # test_null_target_selection()
+    import train
+    train_dataset, test_dataset = train.get_datasets()
+    train_dataset, test_dataset = get_notrandom_notnull(train_dataset, test_dataset, train.node_classification)
+    train_dataset.save('train_dataset.pt')
+    test_dataset.save('test_dataset.pt')
