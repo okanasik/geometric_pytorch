@@ -108,13 +108,13 @@ class RescueDataset(Dataset):
 
     def process(self):
         self.process_metadata()
-        print(self.raw_file_names)
-        print(self.dataset_pattern)
+        # print(self.raw_file_names)
+        # print(self.dataset_pattern)
         for filename in self.raw_file_names:
             if filename in self.metadata:
-                print("skipping:" + filename + " already processed.")
+                # print("skipping:" + filename + " already processed.")
                 continue
-            print("Processing: " + filename)
+            # print("Processing: " + filename)
             full_filename = osp.join(self.raw_dir, filename)
             json_data = self.read_raw_json_file(full_filename)
             num_graph = self.get_num_graph(json_data)
@@ -129,7 +129,7 @@ class RescueDataset(Dataset):
         json_data = self.read_raw_json_file(full_filename)
         data_list = self.create_graph_data(json_data)
         if len(self.cache) > self.max_cache_size:
-            del self.cache[random.sample(self.cache.keys())]
+            del self.cache[random.choice(self.cache.keys())]
         self.cache[filename] = data_list
         return data_list
 
