@@ -65,8 +65,6 @@ class RescueDataset(Dataset):
 
         return True
 
-
-
     @property
     def raw_dir(self):
         return self.root
@@ -157,7 +155,7 @@ class RescueDataset(Dataset):
                 json.dump(self.metadata[filename_key], json_file)
 
     def create_graph_data(self, json_data):
-        null_node_id = self.add_null_node(json_data)
+        null_node_id = self.add_null_node(json_data["graph"])
         data_list = []
         node_indexes, node_ids = self.create_node_indexes(json_data["graph"])
         edge_indexes, edge_attr = self.create_edges(json_data["graph"], node_indexes)
@@ -194,56 +192,8 @@ class RescueDataset(Dataset):
 
         size_feature = 14
         x_features = torch.zeros(len(node_ids), size_feature, dtype=torch.float32)
-        node_idx = 0
-        for node_id in node_ids:
-            node = json_data["graph"]["nodes"][str(node_id)]
-
-            # set static features
-            if node["type"] == "REFUGE":
-                x_features[node_idx][0] = 1
-
-            if node["type"] == "GASSTATION":
-                x_features[node_idx][1] = 1
-
-            if node["type"] == "BUILDING" or node["type"] == "GASSTATION" or node["type"] == "AMBULANCECENTRE" or\
-                node["type"] == "FIRESTATION" or node["type"] == "POLICEOFFICE" or node["type"] == "REFUGE":
-                x_features[node_idx][2] = 1
-
-            if "area" in node:
-                # calculate volumes
-                x_features[node_idx][3] = node["area"]*node["floors"]
-
-            # dynamic features
-            # current agent position
-            if agent_pos_id == node_id:
-                x_features[node_idx][4] = 1
-
-            # set fieryness as zero for the first timestep
-            x_features[node_idx][5] = 0
-
-            # set brokennes as zero for the first timestep
-            x_features[node_idx][6] = 0
-
-            # set repair_cost as zero for the first timestep
-            x_features[node_idx][7] = 0
-
-            if node_id in amb_node_counts:
-                x_features[node_idx][8] = amb_node_counts[node_id]
-
-            if node_id in fb_node_counts:
-                x_features[node_idx][9] = fb_node_counts[node_id]
-
-            if node_id in police_node_counts:
-                x_features[node_idx][10] = police_node_counts[node_id]
-
-            # num_civilians
-            x_features[node_idx][11] = 0
-
-            # x and y position of the node
-            x_features[node_idx][12] = node["x"]
-            x_features[node_idx][13] = node["y"]
-
-            node_idx += 1
+        self.cal_features(json_data["graph"], x_features, node_ids, agent_pos_id, amb_node_counts, fb_node_counts,
+                          police_node_counts, civ_node_counts)
 
         last_agent_pos_id = agent_pos_id
 
@@ -273,7 +223,6 @@ class RescueDataset(Dataset):
             last_fb_count_poses = fb_node_counts.keys()
             last_police_count_poses = police_node_counts.keys()
             last_civ_count_poses = civ_node_counts.keys()
-
 
             for node_id_str in nodes:
                 node_idx = node_indexes[int(node_id_str)]
@@ -338,6 +287,70 @@ class RescueDataset(Dataset):
             data_list.append(frame_data)
 
         return data_list
+
+    @staticmethod
+    def cal_features(graph, x_features, node_ids, agent_pos_id, amb_node_counts, fb_node_counts,
+                     police_node_counts, civ_node_counts):
+        node_idx = 0
+        for node_id in node_ids:
+            node = graph["nodes"][str(node_id)]
+
+            # set static features
+            if node["type"] == "REFUGE":
+                x_features[node_idx][0] = 1
+
+            if node["type"] == "GASSTATION":
+                x_features[node_idx][1] = 1
+
+            if node["type"] == "BUILDING" or node["type"] == "GASSTATION" or node["type"] == "AMBULANCECENTRE" or \
+                    node["type"] == "FIRESTATION" or node["type"] == "POLICEOFFICE" or node["type"] == "REFUGE":
+                x_features[node_idx][2] = 1
+
+            if "area" in node:
+                # calculate volumes
+                x_features[node_idx][3] = node["area"] * node["floors"]
+
+            # dynamic features
+            # current agent position
+            if agent_pos_id == node_id:
+                x_features[node_idx][4] = 1
+
+            # set fieryness as zero for the first timestep
+            if "fieryness" in node:
+                x_features[node_idx][5] = node["fieryness"]
+            else:
+                x_features[node_idx][5] = 0
+
+            # set brokennes as zero for the first timestep
+            if "brokennes" in node:
+                x_features[node_idx][6] = node["brokennes"]
+            else:
+                x_features[node_idx][6] = 0
+
+            # set repair_cost as zero for the first timestep
+            if "repairCost" in node:
+                x_features[node_idx][7] = node["repairCost"]
+            else:
+                x_features[node_idx][7] = 0
+
+            if node_id in amb_node_counts:
+                x_features[node_idx][8] = amb_node_counts[node_id]
+
+            if node_id in fb_node_counts:
+                x_features[node_idx][9] = fb_node_counts[node_id]
+
+            if node_id in police_node_counts:
+                x_features[node_idx][10] = police_node_counts[node_id]
+
+            # num_civilians
+            if node_id in civ_node_counts:
+                x_features[node_idx][11] = civ_node_counts[node_id]
+
+            # x and y position of the node
+            x_features[node_idx][12] = node["x"]
+            x_features[node_idx][13] = node["y"]
+
+            node_idx += 1
 
     @staticmethod
     def reset_count_poses(last_pos_ids, x_features, node_indexes, col_idx):
@@ -466,25 +479,73 @@ class RescueDataset(Dataset):
         return json_object
 
     @staticmethod
-    def add_null_node(json_data):
+    def add_null_node(graph):
         # find empty node id
         null_id = 0
-        while str(null_id) in json_data["graph"]["nodes"]:
+        while str(null_id) in graph["nodes"]:
             null_id += 1
         # add null node as a building with dummy values
-        json_data["graph"]["nodes"][str(null_id)] = {"area":1, "floors":1, "fieryness":0, "brokennes":0, "id": null_id, "type": "BUILDING", "x": 0, "y": 0}
+        graph["nodes"][str(null_id)] = {"area":1, "floors":1, "fieryness":0, "brokennes":0, "id": null_id, "type": "BUILDING", "x": 0, "y": 0}
         # add edges between each node and null node
         # for node_id in json_data["graph"]["nodes"]:
         #     json_data["graph"]["edges"].append({"from": int(node_id), "to": null_id, "weight": 1})
         #     json_data["graph"]["edges"].append({"from": null_id, "to": int(node_id), "weight": 1})
         return null_id
 
+    @staticmethod
+    def convert_to_graph_data(graph, ambulances, firebrigades, polices, civilians, agent):
+        null_node_id = RescueDataset.add_null_node(graph)
+        node_indexes, node_ids = RescueDataset.create_node_indexes(graph)
+        edge_indexes, edge_attr = RescueDataset.create_edges(graph, node_indexes)
+
+        amb_node_counts = RescueDataset.count_agents(ambulances)
+        fb_node_counts = RescueDataset.count_agents(firebrigades)
+        police_node_counts = RescueDataset.count_agents(polices)
+        civ_node_counts = RescueDataset.count_agents(civilians)
+
+        size_feature = 14
+        x_features = torch.zeros(len(node_ids), size_feature, dtype=torch.float32)
+        RescueDataset.cal_features(graph, x_features, node_ids, agent["posId"], amb_node_counts,
+                                   fb_node_counts, police_node_counts, civ_node_counts)
+        data = Data(x=x_features, edge_index=edge_indexes, edge_attr=edge_attr)
+        return data, node_indexes, node_ids
+
+    @staticmethod
+    def count_agents(agents):
+        pos_dict = {}
+        for agent_id in agents:
+            pos_id = agents[agent_id]["posId"]
+            if pos_id in pos_dict:
+                pos_dict[pos_id] += 1
+            else:
+                pos_dict[pos_id] = 1
+        return pos_dict
+
+    @staticmethod
+    def add_batch(data):
+        batch_indexes = torch.zeros(data.x.size(0), dtype=torch.long)
+        data.batch = batch_indexes
 
 if __name__ == "__main__":
-    dataset = RescueDataset("/home/okan/rescuesim/rcrs-server/dataset", "firebrigade", comp="robocup2019",
-                            scenario="test2", team="ait", node_classification=False)
-    print(dataset.calculate_class_distribution())
-    # print(dataset[1001])
-    print(len(dataset))
-    print(dataset[10])
-    print(dataset.num_classes)
+    # dataset = RescueDataset("/home/okan/rescuesim/rcrs-server/dataset", "firebrigade", comp="robocup2019",
+    #                         scenario="test2", team="ait", node_classification=False)
+    # print(dataset.calculate_class_distribution())
+    # # print(dataset[1001])
+    # print(len(dataset))
+    # print(dataset[10])
+    # print(dataset.num_classes)
+
+    from inmemory_rescue_dataset import InMemoryRescueDataset
+    from torch_geometric.data.dataloader import DataLoader
+    test_dataset = InMemoryRescueDataset([], node_classification=False)
+    test_dataset.load('test_dataset.pt')
+    test_loader = DataLoader(test_dataset, batch_size=1, shuffle=False)
+
+    for test_data in test_loader:
+        print(test_data)
+        print(test_data.batch)
+        print(test_data.batch.size())
+        print(test_data.x.size(0))
+        print(test_data.batch.dtype)
+        batch_indexes = torch.zeros(test_data.x.size(0), dtype=torch.long)
+        print(batch_indexes)
