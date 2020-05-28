@@ -2,11 +2,17 @@ import torch
 import torch.nn.functional as F
 from torch_geometric.nn import GraphConv, TopKPooling, GATConv
 from torch_geometric.nn import global_mean_pool as gap, global_max_pool as gmp
+from rescue.models.model import Model
 
 
-class TopKNet(torch.nn.Module):
+class TopKNet(Model):
     def __init__(self, num_features, num_classes):
         super(TopKNet, self).__init__()
+        self.name = "topknet"
+        self.version = "v1"
+        self.num_features = num_features
+        self.num_classes = num_classes
+
         self.bn1 = torch.nn.BatchNorm1d(num_features=num_features)
 
         self.conv1 = GATConv(num_features, 256)
@@ -49,3 +55,14 @@ class TopKNet(torch.nn.Module):
         x = F.relu(self.bn6(self.lin2(x)))
         x = self.lin3(x)
         return x
+
+
+if __name__ == "__main__":
+    from inmemory_rescue_dataset import InMemoryRescueDataset
+    test_dataset = InMemoryRescueDataset([], node_classification=False)
+    test_dataset.load('../test_dataset.pt')
+    state_dict = torch.load('../topk_test_gat.pth')
+    topk_model = TopKNet(test_dataset.num_features, test_dataset.num_classes)
+    topk_model.load_state_dict(state_dict)
+    topk_model.mysave("topk_test_gat.pth")
+
