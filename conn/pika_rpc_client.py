@@ -1,5 +1,6 @@
 import pika
 import uuid
+import json
 
 
 class RPCClient(object):
@@ -31,7 +32,9 @@ class RPCClient(object):
 if __name__ == '__main__':
     rpc_client = RPCClient()
     for i in range(100):
-        print('Calling fib({})'.format(i))
-        result = rpc_client.call('fib', i)
-        print('Result fib({})={}'.format(i, result))
-
+        data = {"graph":"hello", "no":12}
+        json_str = json.dumps(data)
+        print('Calling building_detector with data{}'.format(json_str))
+        result = rpc_client.call('building_detector', json_str)
+        result_data = json.loads(result)
+        print('Result {}'.format(result_data))
