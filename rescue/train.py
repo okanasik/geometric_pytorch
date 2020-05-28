@@ -4,10 +4,8 @@ from torch_geometric.data.dataloader import DataLoader
 from rescue_dataset import RescueDataset
 from inmemory_rescue_dataset import InMemoryRescueDataset
 from rescue_dataset_list import RescueDatasetList
-from topk_model import TopKNet
-from gcn_model import GCNNet
-from agnn_model import AGNNNet
-from soft_assignment_loss import soft_assignment_loss
+from models.topk_model import TopKNet
+import test_model
 
 # parameters
 node_classification = False
@@ -19,7 +17,7 @@ def get_datasets():
     train_datasets = []
     for i in range(50,300):
         dataset = RescueDataset("/home/okan/rescuesim/rcrs-server/dataset", "firebrigade", comp="robocup2019",
-                                scenario="test"+str(i),
+                                   scenario="test"+str(i),
                                 team="ait", node_classification=node_classification, read_info_map=True)
         train_datasets.append(dataset)
     train_dataset_list = RescueDatasetList(train_datasets)
@@ -61,25 +59,6 @@ def train():
     return total_loss / total_graph
 
 
-def test_model(data_loader):
-    model.eval()
-    correct = 0
-    total_graph = 0
-    for data in data_loader:
-        data = data.to(device)
-        output = model(data)
-        if node_classification:
-            pred = output.max(1)[1]
-            pred_index = torch.argmax(pred)
-            y_index = torch.argmax(data.y)
-            correct += int(y_index == pred_index)
-        else:
-            pred = output.max(dim=1)[1]
-            correct += pred.eq(data.y).sum().item()
-        total_graph += data.num_graphs
-    return correct / total_graph
-
-
 if __name__ == '__main__':
     # import analyze_dataset
     # train_dataset, test_dataset = get_datasets()
@@ -105,18 +84,18 @@ if __name__ == '__main__':
 
     # model = GCNNet(dataset.num_features, dataset.num_classes)
     model = TopKNet(train_dataset.num_features, train_dataset.num_classes)
-    # model.load_state_dict(torch.load('./topk_model_test4.pth'))
+    model.load_state_dict(torch.load('./topk_test_gat.pth'))
     # model = AGNNNet(dataset.num_features, dataset.num_classes)
 
     model = model.to(device)
-    optimizer = torch.optim.Adam(model.parameters(), lr=0.001, weight_decay=1e-4)
-    for epoch in range(1, 1001):
+    optimizer = torch.optim.Adam(model.parameters(), lr=0.0001, weight_decay=1e-4)
+    for epoch in range(0, 1001):
         loss = train()
-        train_accuracy = test_model(testtrain_loader)
-        test_accuracy = test_model(test_loader)
-        log = 'Epoch: {:03d}, Train Loss: {:.8f} Train Accuracy: {:.8f} Test Accuracy: {:.8f}'
-        print(log.format(epoch, loss, train_accuracy, test_accuracy))
         if epoch % 10 == 0:
+            train_accuracy = test_model.test_model(testtrain_loader, model, node_classification, device)
+            test_accuracy = test_model.test_model(test_loader, model, node_classification, device)
+            log = 'Epoch: {:03d}, Train Loss: {:.8f} Train Accuracy: {:.8f} Test Accuracy: {:.8f}'
+            print(log.format(epoch, loss, train_accuracy, test_accuracy))
             print("Saving model topk")
             torch.save(model.state_dict(), './topk_test_gat.pth')
             print('Model: ' +  './topk_test_gat.pth' + ' is saved.')
