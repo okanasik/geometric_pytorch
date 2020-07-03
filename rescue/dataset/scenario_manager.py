@@ -1,15 +1,7 @@
-import os
 import shutil
 import utils
 import random
-import subprocess
-
-
-# global parameters
-num_civs = 20
-num_fbs = 5
-num_ambs = 1
-num_polices = 1
+import os
 
 
 def create_scenario_file(file_name, refuge_id, civ_positions, amb_positions, fb_positions, police_positions, fire_positions):
@@ -36,7 +28,34 @@ def create_scenario_file(file_name, refuge_id, civ_positions, amb_positions, fb_
 
     fp.close()
 
-def create_scenario(base_scenario_path, root_path, scenario_name, num_fires):
+
+def set_random_seed(scn_folder, seed):
+    cfg_path = os.path.join(scn_folder, "config")
+    cfg_path = os.path.join(cfg_path, "common.cfg")
+    lines = []
+    with open(cfg_path, "r") as fp:
+        for line in fp:
+            lines.append(line.strip("\n"))
+
+    with open(cfg_path, "w") as fp:
+        for line in lines:
+            if line.startswith("random.seed:"):
+                fp.write("random.seed: {}\n".format(seed))
+            else:
+                fp.write(line+"\n")
+
+
+def get_random_seed(scn_folder):
+    cfg_path = os.path.join(scn_folder, "config")
+    cfg_path = os.path.join(cfg_path, "common.cfg")
+    with open(cfg_path, "r") as fp:
+        for line in fp:
+            if line.startswith("random.seed:"):
+                values = line.split(":")
+                return int(values[1])
+
+
+def create_scenario(base_scenario_path, root_path, scenario_name, num_fires, num_ambs, num_fbs, num_polices, num_civs):
     full_folder_path = os.path.join(root_path, scenario_name)
     if os.path.exists(full_folder_path):
         shutil.rmtree(full_folder_path)
@@ -54,7 +73,7 @@ def create_scenario(base_scenario_path, root_path, scenario_name, num_fires):
 
     # choose agent positions
     all_positions = building_ids + road_ids
-    fb_positions = random.choices(all_positions, k=num_fbs)
+    fb_positions = random.choices(road_ids, k=num_fbs)
     amb_positions = random.choices(all_positions, k=num_ambs)
     police_positions = random.choices(all_positions, k=num_polices)
 
@@ -64,34 +83,6 @@ def create_scenario(base_scenario_path, root_path, scenario_name, num_fires):
                          amb_positions, fb_positions, police_positions, fire_positions)
 
 
-def run_scenario(scenario_root_path, scenario, rescue_path, team_name):
-    script = "cd " + rescue_path + " && ./demo.sh -c " + os.path.join(scenario_root_path, scenario) + "/config" +\
-    " -m " + os.path.join(scenario_root_path, scenario) + "/map -t " + team_name
-    num_agents = utils.read_num_agents(os.path.join(scenario_root_path, scenario) + '/map/scenario.xml')
-    print(script)
-    process = subprocess.Popen(script, shell=True, stdout=subprocess.PIPE)
-    num_agent_completed = 0
-    for line in iter(process.stdout.readline, ''):
-        line = line.decode('utf-8').strip()
-        if ': file is saved!' in line:
-            num_agent_completed += 1
-        if num_agent_completed == num_agents:
-            process.terminate()
-            break
-
-    # with subprocess.Popen() as process:
-    #     print(process.stdout.read())
-    # subprocess.run(script, shell=True, stdout=None)
-
-
-if __name__ == '__main__':
-    # for i in range(300, 400):
-    #     create_scenario('/home/okan/rescuesim/scenarios/robocup2019/test2', '/home/okan/rescuesim/scenarios/robocup2019',
-    #                 'test'+str(i), 7)
-
-    # run_scenario('/home/okan/rescuesim/scenarios/robocup2019', 'test299', '/home/okan/rescuesim/rcrs-server/boot', 'ait')
-
-    for i in range(300, 400):
-        print("Running scenario: {}".format(i))
-        run_scenario('/home/okan/rescuesim/scenarios/robocup2019', 'test'+str(i),
-                     '/home/okan/rescuesim/rcrs-server/boot', 'ait')
+if __name__ == "__main__":
+    # set_random_seed("/home/okan/rescuesim/scenarios/robocup2019/test", 1024)
+    print(get_random_seed("/home/okan/rescuesim/scenarios/robocup2019/test"))

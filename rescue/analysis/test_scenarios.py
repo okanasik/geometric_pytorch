@@ -1,11 +1,13 @@
-from rescue.scenario_runner import ScenarioRunner
+from sim_wrapper.scenario_runner import ScenarioRunner
 import os
 import json
 import numpy as np
+import rescue.dataset.scenario_manager as scn_manager
+import random
 
 
 def get_test_scenarios():
-    return ["test{}".format(i) for i in range(300, 400)]
+    return ["test{}".format(i) for i in range(500)]
 
 
 def combine_team_scores():
@@ -64,44 +66,84 @@ def combine_results():
         json.dump(json_scores, fp)
 
 
-def summarize_results():
-    with open("all_team_scores.json", "r") as fp:
+def summarize_results(data_filename, scenarios=None):
+    with open(data_filename, "r") as fp:
         json_data = json.load(fp)
 
     for team in json_data:
         print(team)
         scores = []
         for scn in json_data[team]:
-            scores.append(json_data[team][scn]["final_score"])
+            if scenarios is not None and scn in scenarios:
+                print(scn)
+                scores.append(json_data[team][scn]["final_score"])
         avg_score = np.mean(scores)
         std_score = np.std(scores)
         print("{} +- {}".format(avg_score, std_score))
 
 
+def run_scenarios(score_file_name, scenarios, new_seed=False, num_sim_per_scn=1):
+    scn_root = "/home/okan/rescuesim/scenarios/test/"
+    # teams = ["ait", "mrl", "aitsample", "csu", "rio"]
+    teams = ["ait"]
+    stats = {}
+    for team in teams:
+        stats[team] = {}
+        print(team)
+        for scn in scenarios:
+            print(scn)
+            stats[team][scn] = {}
+            stats[team][scn]["final_score"] = []
+            stats[team][scn]["scores"] = []
+            for i in range(num_sim_per_scn):
+                scn_folder = os.path.join(scn_root, scn)
+                if new_seed:
+                    original_seed = scn_manager.get_random_seed(scn_folder)
+                    new_rnd_seed = random.randrange(1000000)
+                    scn_manager.set_random_seed(scn_folder, new_rnd_seed)
+
+                runner = ScenarioRunner(team, "false", scn_folder, viewer="")
+                final_score, scores = runner.run()
+
+                if new_seed:
+                    scn_manager.set_random_seed(scn_folder, original_seed)
+
+                stats[team][scn]["final_score"].append(final_score)
+                stats[team][scn]["scores"].append(scores)
+                print(final_score)
+                print(scores)
+
+            with open(score_file_name, "w") as outfile:
+                json.dump(stats, outfile)
+
+
 if __name__ == "__main__":
-    # scenarios = get_test_scenarios()
-    # scn_root = "/home/okan/rescuesim/scenarios/robocup2019/"
-    # teams = ["csu", "rio"]
-    # # teams = ["aitil"]
-    # stats = {}
-    # for team in teams:
-    #     stats[team] = {}
-    #     print(team)
-    #     for scn in scenarios:
-    #         print(scn)
-    #         runner = ScenarioRunner(team, "false", os.path.join(scn_root, scn))
-    #         final_score, scores = runner.run()
-    #         stats[team][scn] = {}
-    #         stats[team][scn]["final_score"] = final_score
-    #         stats[team][scn]["scores"] = scores
-    #         print(final_score)
-    #         print(scores)
-    #
-    #         with open("other_team_scores2.json", "w") as outfile:
-    #             json.dump(stats, outfile)
+    # run_scenarios()
     # combine_results()
-    summarize_results()
+    # summarize_results("aitil_scores.json")
+    # summarize_results("all_team_scores.json")
     # combine_team_scores()
+    # training_scns = ["test{}".format(i) for i in range(400)]
+    # print("ait")
+    # summarize_results("ait_scores.json", scenarios=scns)
+    # print("aitsample")
+    # summarize_results("aitsample_scores.json", scenarios=scns)
+    # print("aitil")
+    # summarize_results("aitil_topk_notnull_scores.json", scenarios=scns)
+    # print("aitil_notrandom")
+    # summarize_results("aitil_topk_notnull_notrandom_scores.json", scenarios=scns)
+    # print("rio")
+    # summarize_results("rio_scores.json", scenarios=scns)
+    # print("mrl")
+    # summarize_results("mrl_scores.json", scenarios=scns)
+    # print("csu")
+    # summarize_results("csu_scores.json", scenarios=scns)
+    # summarize_results("aitrl_bc_rl_scores.json", scenarios=training_scns)
+    # test_scns = ["test{}".format(i) for i in range(400,500)]
+    # summarize_results("aitrl_bc_rl_scores.json", scenarios=test_scns)
+    run_scenarios("ait_test0_rndseeds_scores.json", ["test0"], new_seed=True, num_sim_per_scn=100)
+
+
 
 
 

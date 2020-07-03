@@ -1,6 +1,6 @@
 from torch_geometric.utils import to_networkx
 import networkx as nx
-from rescue_dataset import RescueDataset
+from dataset.rescue_dataset import RescueDataset
 import matplotlib.pyplot as plt
 
 
@@ -89,9 +89,10 @@ def play_dataset(dataset, pause=0.2):
         plt.clf()
 
 
-dataset = RescueDataset("/home/okan/rescuesim/rcrs-server/dataset", "firebrigade", comp="robocup2019",
+if __name__ == "__main__":
+    dataset = RescueDataset("/home/okan/rescuesim/rcrs-server/dataset", "firebrigade", comp="test",
                             scenario="test2", team="ait", node_classification=False)
-play_dataset(dataset, pause=0.1)
+    play_dataset(dataset, pause=0.1)
 
 
 

@@ -1,5 +1,5 @@
 import torch
-from inmemory_rescue_dataset import InMemoryRescueDataset
+from dataset.inmemory_rescue_dataset import InMemoryRescueDataset
 from torch_geometric.data.dataloader import DataLoader
 from models.model import Model
 
@@ -47,16 +47,39 @@ def test_model_building_on_fire_selection(data_loader, model, node_classificatio
     return correct / total_graph, on_fire_count / total_graph
 
 
+def convert_and_save_model():
+    test_dataset = InMemoryRescueDataset([], node_classification=False)
+    test_dataset.load('dataset/test_notnull_notrandom_dataset.pt')
+
+    from rescue.models.topk_model import TopKNet
+    topk_model = TopKNet(test_dataset.num_features, test_dataset.num_classes)
+
+    model_filename = "topk_gat_test_notnull_notrandom.pt"
+    topk_model.load_state_dict(torch.load(model_filename))
+    topk_model.mysave("models/" + model_filename)
+
 if __name__ == '__main__':
     batch_size = 1
     node_classification = False
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
+    train_dataset = InMemoryRescueDataset([], node_classification=node_classification)
+    train_dataset.load('dataset/train_notnull_notrandom_dataset.pt')
+    train_dataloader = DataLoader(train_dataset, batch_size=batch_size)
+
     test_dataset = InMemoryRescueDataset([], node_classification=node_classification)
-    test_dataset.load('test_dataset.pt')
+    test_dataset.load('dataset/test_notnull_notrandom_dataset.pt')
     test_dataloader = DataLoader(test_dataset, batch_size=batch_size)
 
-    model = Model.load("models/topk_test_gat.pth")
+    model = Model.load("models/topk_gat_test_notnull_notrandom.pt")
     model = model.to(device)
     accuracy, on_fire_accuracy = test_model_building_on_fire_selection(test_dataloader, model, node_classification, device)
     print("Accuracy:{} On Fire Accuracy:{}".format(accuracy, on_fire_accuracy))
+
+    # accuracy = test_model(train_dataloader, model, node_classification, device)
+    # print("Train Dataset Accuracy:{}".format(accuracy))
+    #
+    # accuracy = test_model(test_dataloader, model, node_classification, device)
+    # print("Test Dataset Accuracy:{}".format(accuracy))
+
+    # convert_and_save_model()

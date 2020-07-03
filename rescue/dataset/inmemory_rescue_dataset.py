@@ -33,5 +33,10 @@ class InMemoryRescueDataset(Dataset):
     def save(self, file_name):
         torch.save(self.data_list, file_name)
 
-    def load(self, file_name):
+    def load(self, file_name, device="cpu"):
         self.data_list = torch.load(file_name)
+
+        # if gpu copy all data to gpu
+        # if device != "cpu":
+        #     for i in range(len(self.data_list)):
+        #         self.data_list[i] = self.data_list[i].to(device)

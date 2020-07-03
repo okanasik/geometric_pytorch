@@ -1,11 +1,8 @@
 import torch
 import torch.nn.functional as F
 from torch_geometric.data.dataloader import DataLoader
-from rescue_dataset import RescueDataset
-from topk_model import TopKNet
-from gcn_model import GCNNet
-from agnn_model import AGNNNet
-from soft_assignment_loss import soft_assignment_loss
+from dataset.rescue_dataset import RescueDataset
+from models.gcn_model import GCNNet
 
 # parameters
 node_classification = True

@@ -1,0 +1,2279 @@
+/home/okan/anaconda3/envs/pytorch/bin/python /home/okan/rescuesim/geometric_pytorch/rl/policy_gradient.py
+scn_index:0
+Exception in thread Thread-2:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:0 reward:59.2633056640625 loss:246.6564483642578
+scn_index:9
+Exception in thread Thread-4:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:1 reward:53.66034698486328 loss:243.21737670898438
+scn_index:9
+Exception in thread Thread-6:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:2 reward:46.44276809692383 loss:182.49705505371094
+scn_index:4
+Exception in thread Thread-8:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:3 reward:50.949012756347656 loss:177.6341094970703
+scn_index:2
+Exception in thread Thread-10:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:4 reward:71.16273498535156 loss:191.4423370361328
+scn_index:6
+Exception in thread Thread-12:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:5 reward:58.53626251220703 loss:127.67096710205078
+scn_index:2
+Exception in thread Thread-14:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:6 reward:64.6831283569336 loss:105.49544525146484
+scn_index:8
+Exception in thread Thread-16:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: AssertionError(('_AsyncTransportBase._produce() tx buffer size underflow', -18, 1))
+
+epoch:7 reward:66.84191131591797 loss:83.32332611083984
+scn_index:4
+epoch:8 reward:47.7794189453125 loss:52.755210876464844
+scn_index:2
+Exception in thread Thread-20:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:9 reward:66.97001647949219 loss:77.16085815429688
+scn_index:8
+Exception in thread Thread-22:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:10 reward:61.62250518798828 loss:74.88386535644531
+scn_index:3
+Exception in thread Thread-24:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:11 reward:55.42095184326172 loss:82.71429443359375
+scn_index:1
+Exception in thread Thread-26:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:12 reward:49.38827133178711 loss:48.21931457519531
+scn_index:6
+Exception in thread Thread-28:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:13 reward:65.73312377929688 loss:55.609092712402344
+scn_index:9
+Exception in thread Thread-30:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:14 reward:52.714393615722656 loss:51.115196228027344
+scn_index:3
+Exception in thread Thread-32:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:15 reward:64.65137481689453 loss:56.292396545410156
+scn_index:5
+Exception in thread Thread-34:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:16 reward:48.277565002441406 loss:57.16653823852539
+scn_index:5
+Exception in thread Thread-36:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:17 reward:46.42430114746094 loss:49.62679672241211
+scn_index:3
+Exception in thread Thread-38:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:18 reward:58.13560485839844 loss:66.21560668945312
+scn_index:5
+Exception in thread Thread-40:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:19 reward:49.25510025024414 loss:54.05923843383789
+scn_index:8
+Exception in thread Thread-42:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:20 reward:67.7170639038086 loss:59.68413543701172
+scn_index:5
+Exception in thread Thread-44:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:21 reward:54.86545181274414 loss:61.608680725097656
+scn_index:9
+Exception in thread Thread-46:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:22 reward:50.72738265991211 loss:52.1254768371582
+scn_index:6
+Exception in thread Thread-48:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:23 reward:52.396209716796875 loss:49.45881271362305
+scn_index:5
+Exception in thread Thread-50:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:24 reward:50.80714416503906 loss:53.9464111328125
+scn_index:2
+Exception in thread Thread-52:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:25 reward:68.74629974365234 loss:78.74525451660156
+scn_index:9
+Exception in thread Thread-54:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:26 reward:43.67828369140625 loss:45.166690826416016
+scn_index:4
+Exception in thread Thread-56:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:27 reward:50.17351150512695 loss:52.41756820678711
+scn_index:0
+Exception in thread Thread-58:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:28 reward:52.991886138916016 loss:51.39973449707031
+scn_index:3
+Exception in thread Thread-60:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:29 reward:63.95139694213867 loss:58.722312927246094
+scn_index:1
+Exception in thread Thread-62:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:30 reward:66.39737701416016 loss:46.98006057739258
+scn_index:6
+Exception in thread Thread-64:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:31 reward:51.46366882324219 loss:25.098350524902344
+scn_index:7
+Exception in thread Thread-66:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:32 reward:54.64316177368164 loss:26.684337615966797
+scn_index:6
+Exception in thread Thread-68:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/utils/io_services_utils.py", line 1097, in _on_socket_writable
+    self._produce()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/utils/io_services_utils.py", line 822, in _produce
+    chunk = self._tx_buffers.popleft()
+IndexError: pop from an empty deque
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 513, in _flush_output
+    self._impl.ioloop.poll()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/select_connection.py", line 576, in poll
+    self._poller.poll()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/select_connection.py", line 1200, in poll
+    self._dispatch_fd_events(fd_event_map)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/select_connection.py", line 904, in _dispatch_fd_events
+    handler(fileno, events)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/utils/selector_ioloop_adapter.py", line 391, in _on_reader_writer_fd_events
+    callbacks.writer()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/diagnostic_utils.py", line 53, in log_exception_func_wrap
+    return func(*args, **kwargs)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/utils/io_services_utils.py", line 1108, in _on_socket_writable
+    self._initiate_abort(error)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/diagnostic_utils.py", line 53, in log_exception_func_wrap
+    return func(*args, **kwargs)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/utils/io_services_utils.py", line 937, in _initiate_abort
+    '_STATE_ABORTED_BY_USER', self._state)
+AssertionError: ('_AsyncTransportBase._initate_abort() expected _STATE_ABORTED_BY_USER', 2)
+
+epoch:33 reward:55.73149490356445 loss:29.64938735961914
+scn_index:9
+Exception in thread Thread-70:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 513, in _flush_output
+    self._impl.ioloop.poll()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/select_connection.py", line 576, in poll
+    self._poller.poll()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/select_connection.py", line 1200, in poll
+    self._dispatch_fd_events(fd_event_map)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/select_connection.py", line 888, in _dispatch_fd_events
+    self._processing_fd_event_map.clear()
+AttributeError: 'NoneType' object has no attribute 'clear'
+
+epoch:34 reward:41.40095138549805 loss:13.710209846496582
+scn_index:2
+Exception in thread Thread-72:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:35 reward:75.021240234375 loss:45.120243072509766
+scn_index:2
+Exception in thread Thread-74:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:36 reward:70.98922729492188 loss:46.47916030883789
+scn_index:1
+Exception in thread Thread-76:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:37 reward:57.03472900390625 loss:17.316158294677734
+scn_index:0
+epoch:38 reward:62.059078216552734 loss:21.980648040771484
+scn_index:1
+Exception in thread Thread-80:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:39 reward:52.92366409301758 loss:14.02730655670166
+scn_index:0
+Exception in thread Thread-82:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:40 reward:54.18001937866211 loss:17.706829071044922
+scn_index:7
+Exception in thread Thread-84:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:41 reward:54.973575592041016 loss:15.654610633850098
+scn_index:6
+Exception in thread Thread-86:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:42 reward:52.55128860473633 loss:9.275843620300293
+scn_index:8
+Exception in thread Thread-88:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:43 reward:56.93595504760742 loss:12.658280372619629
+scn_index:2
+Exception in thread Thread-90:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:44 reward:72.43519592285156 loss:30.665767669677734
+scn_index:6
+Exception in thread Thread-92:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:45 reward:57.0711669921875 loss:9.18714427947998
+scn_index:3
+Exception in thread Thread-94:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:46 reward:55.34711456298828 loss:16.50336265563965
+scn_index:1
+Exception in thread Thread-96:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:47 reward:59.48259735107422 loss:5.378587245941162
+scn_index:8
+Exception in thread Thread-98:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:48 reward:57.46406555175781 loss:9.679889678955078
+scn_index:7
+Exception in thread Thread-100:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:49 reward:48.700321197509766 loss:5.8561248779296875
+scn_index:0
+Exception in thread Thread-102:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:50 reward:55.711585998535156 loss:12.492820739746094
+scn_index:9
+Exception in thread Thread-104:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:51 reward:43.91767883300781 loss:2.9399569034576416
+scn_index:8
+Exception in thread Thread-106:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:52 reward:62.83637237548828 loss:6.2212233543396
+scn_index:4
+epoch:53 reward:52.961299896240234 loss:6.033907413482666
+scn_index:8
+Exception in thread Thread-110:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:54 reward:57.63032150268555 loss:3.7829792499542236
+scn_index:6
+Exception in thread Thread-112:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:55 reward:57.99654769897461 loss:6.9149556159973145
+scn_index:4
+Exception in thread Thread-114:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:56 reward:52.117095947265625 loss:5.846153259277344
+scn_index:6
+Exception in thread Thread-116:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:57 reward:57.62602996826172 loss:2.9569787979125977
+scn_index:3
+Exception in thread Thread-118:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:58 reward:52.829566955566406 loss:2.8875133991241455
+scn_index:7
+Exception in thread Thread-120:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:59 reward:51.36986541748047 loss:5.310908317565918
+scn_index:2
+Exception in thread Thread-122:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:60 reward:69.79449462890625 loss:6.844428062438965
+scn_index:6
+Exception in thread Thread-124:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:61 reward:58.697933197021484 loss:6.587783336639404
+scn_index:6
+Exception in thread Thread-126:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:62 reward:55.63835525512695 loss:6.42399787902832
+scn_index:6
+Exception in thread Thread-128:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:63 reward:58.77065658569336 loss:2.751525640487671
+scn_index:1
+Exception in thread Thread-130:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:64 reward:57.041507720947266 loss:3.0237812995910645
+scn_index:3
+Exception in thread Thread-132:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:65 reward:58.94322967529297 loss:2.4170072078704834
+scn_index:1
+Exception in thread Thread-134:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:66 reward:61.18204116821289 loss:5.841324806213379
+scn_index:7
+Exception in thread Thread-136:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:67 reward:51.906768798828125 loss:5.48945951461792
+scn_index:4
+Exception in thread Thread-138:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:68 reward:53.36614227294922 loss:3.107020616531372
+scn_index:6
+Exception in thread Thread-140:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:69 reward:58.82274627685547 loss:6.662103652954102
+scn_index:0
+Exception in thread Thread-142:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:70 reward:61.28025817871094 loss:5.8689351081848145
+scn_index:3
+Exception in thread Thread-144:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: AssertionError(('_AsyncTransportBase._produce() tx buffer size underflow', -18, 1))
+
+epoch:71 reward:55.32668685913086 loss:2.701735019683838
+scn_index:0
+Exception in thread Thread-146:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:72 reward:51.34648132324219 loss:5.101198196411133
+scn_index:4
+Exception in thread Thread-148:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:73 reward:53.1843376159668 loss:3.755244731903076
+scn_index:5
+Exception in thread Thread-150:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:74 reward:49.91164016723633 loss:4.098702430725098
+scn_index:8
+Exception in thread Thread-152:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:75 reward:60.94423294067383 loss:4.408743381500244
+scn_index:6
+Exception in thread Thread-154:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:76 reward:59.81884002685547 loss:4.609957218170166
+scn_index:3
+Exception in thread Thread-156:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:77 reward:58.552391052246094 loss:3.1501100063323975
+scn_index:4
+Exception in thread Thread-158:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:78 reward:50.50334167480469 loss:2.6220264434814453
+scn_index:4
+Exception in thread Thread-160:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:79 reward:56.712772369384766 loss:4.998047828674316
+scn_index:5
+Exception in thread Thread-162:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:80 reward:47.89616775512695 loss:3.4838600158691406
+scn_index:5
+Exception in thread Thread-164:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:81 reward:45.88542556762695 loss:5.757552146911621
+scn_index:2
+Exception in thread Thread-166:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:82 reward:70.49298858642578 loss:5.334209442138672
+scn_index:5
+epoch:83 reward:47.72594451904297 loss:4.781343936920166
+scn_index:4
+Exception in thread Thread-170:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:84 reward:56.061519622802734 loss:2.8450303077697754
+scn_index:7
+Exception in thread Thread-172:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:85 reward:55.23681640625 loss:3.5507047176361084
+scn_index:5
+Exception in thread Thread-174:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:86 reward:51.19611358642578 loss:5.82290506362915
+scn_index:6
+Exception in thread Thread-176:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:87 reward:55.81827163696289 loss:2.6987831592559814
+scn_index:2
+Exception in thread Thread-178:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: AssertionError(('_AsyncTransportBase._produce() tx buffer size underflow', -18, 1))
+
+epoch:88 reward:68.12576293945312 loss:3.930468797683716
+scn_index:0
+Exception in thread Thread-180:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:89 reward:62.638492584228516 loss:7.599623680114746
+scn_index:4
+Exception in thread Thread-182:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:90 reward:52.17216110229492 loss:3.216878890991211
+scn_index:2
+Exception in thread Thread-184:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:91 reward:69.17826080322266 loss:5.210640907287598
+scn_index:7
+Exception in thread Thread-186:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:92 reward:50.90190887451172 loss:2.811962366104126
+scn_index:7
+Exception in thread Thread-188:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:93 reward:53.35478591918945 loss:4.138862609863281
+scn_index:6
+Exception in thread Thread-190:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:94 reward:57.277923583984375 loss:3.832122564315796
+scn_index:1
+Exception in thread Thread-192:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:95 reward:65.46437072753906 loss:5.440000057220459
+scn_index:2
+Exception in thread Thread-194:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:96 reward:71.19324493408203 loss:3.7204537391662598
+scn_index:4
+Exception in thread Thread-196:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:97 reward:51.1863899230957 loss:3.292159080505371
+scn_index:8
+Exception in thread Thread-198:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:98 reward:56.83123016357422 loss:2.3853228092193604
+scn_index:9
+Exception in thread Thread-200:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:99 reward:54.86351776123047 loss:2.8644022941589355
+scn_index:0
+Exception in thread Thread-202:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:100 reward:50.980472564697266 loss:6.029072284698486
+scn_index:5
+Exception in thread Thread-204:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:101 reward:46.321556091308594 loss:2.4919486045837402
+scn_index:3
+Exception in thread Thread-206:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:102 reward:56.0129508972168 loss:2.2890408039093018
+scn_index:0
+epoch:103 reward:57.26868438720703 loss:3.4124021530151367
+scn_index:9
+Exception in thread Thread-210:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:104 reward:45.025718688964844 loss:2.4735207557678223
+scn_index:8
+Exception in thread Thread-212:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:105 reward:64.1187973022461 loss:3.054269790649414
+scn_index:2
+Exception in thread Thread-214:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:106 reward:60.735572814941406 loss:3.4213976860046387
+scn_index:2
+Exception in thread Thread-216:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:107 reward:73.451416015625 loss:3.2316462993621826
+scn_index:4
+Exception in thread Thread-218:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:108 reward:48.3900032043457 loss:2.25182843208313
+scn_index:6
+Exception in thread Thread-220:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:109 reward:52.00559997558594 loss:3.3675737380981445
+scn_index:3
+Exception in thread Thread-222:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:110 reward:57.89177703857422 loss:2.1837708950042725
+scn_index:4
+Exception in thread Thread-224:
+Traceback (most recent call last):
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 926, in _bootstrap_inner
+    self.run()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/okan/rescuesim/geometric_pytorch/conn/pika_rpc_server.py", line 37, in start_listening
+    self.channel.start_consuming()
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1866, in start_consuming
+    self._process_data_events(time_limit=None)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2027, in _process_data_events
+    self.connection.process_data_events(time_limit=time_limit)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 825, in process_data_events
+    self._flush_output(common_terminator)
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+  File "/home/okan/anaconda3/envs/pytorch/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 522, in _flush_output
+    raise self._closed_result.value.error
+pika.exceptions.StreamLostError: Stream connection lost: IndexError('pop from an empty deque')
+
+epoch:111 reward:56.45026397705078 loss:3.67728328704834
+scn_index:0
+Traceback (most recent call last):
+  File "/home/okan/rescuesim/geometric_pytorch/rl/policy_gradient.py", line 73, in <module>
+    train_policy_gradient()
+  File "/home/okan/rescuesim/geometric_pytorch/rl/policy_gradient.py", line 64, in train_policy_gradient
+    loss, mean_reward = train_one_epoch(1, model, optimizer)
+  File "/home/okan/rescuesim/geometric_pytorch/rl/policy_gradient.py", line 32, in train_one_epoch
+    obs, acts, rewards = rescue_env.collect_data(model, 10)
+  File "/home/okan/rescuesim/geometric_pytorch/sim_wrapper/rescue_environment.py", line 62, in collect_data
+    final_score, scores = scenario_runner.run()
+  File "/home/okan/rescuesim/geometric_pytorch/sim_wrapper/scenario_runner.py", line 27, in run
+    for line in iter(process.stdout.readline, ''):
+KeyboardInterrupt
+
+Process finished with exit code 137 (interrupted by signal 9: SIGKILL)

@@ -1,8 +1,6 @@
 import os
 from zipfile import ZipFile
 import json
-from agent_type import AgentType
-from rescue_dataset import RescueDataset
 from torch_geometric.datasets import Planetoid
 
 

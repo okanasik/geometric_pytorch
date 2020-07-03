@@ -1,30 +1,3 @@
-# import torch
-# from torch_scatter import scatter_max, scatter_sum, scatter_min
-#
-# values = torch.tensor([1, 0, 1, 0, 1, 2, 1, 2, 0, 1])
-# print(values)
-# indexes = torch.tensor([0, 0, 0, 1, 1, 1, 2, 2, 2, 2])
-# print(indexes)
-#
-# from torch_scatter import scatter_max, scatter_sum, scatter_min
-# _, scatter_indexes = scatter_min(indexes, indexes)
-# print(scatter_indexes)
-#
-# max_values, max_indexes = scatter_max(values, indexes)
-# print(max_values)
-# print(max_indexes)
-# print(max_indexes-scatter_indexes)
-# sum_indexes = scatter_sum(indexes, indexes)
-# print(sum_indexes)
-# all_idx_count = 0
-# for i, idx in enumerate(sum_indexes):
-#     if i == 0: continue
-#     sum_indexes[i] = idx / i
-#     all_idx_count += sum_indexes[i]
-#
-# zero_count = len(indexes) - all_idx_count
-# sum_indexes[0] = zero_count
-# print(sum_indexes)
 from datetime import datetime
 import xml.etree.ElementTree as et
 
@@ -64,20 +37,37 @@ def read_rescue_gml(file_path):
 def read_num_agents(scn_file_path):
     tree = et.parse(scn_file_path)
     root = tree.getroot()
-    count = 0
+    amb_count = 0
+    fb_count = 0
+    police_count = 0
+    civ_count = 0
     for amb in root.iter('{urn:roborescue:map:scenario}ambulanceteam'):
-        count += 1
+        amb_count += 1
     for fb in root.iter('{urn:roborescue:map:scenario}firebrigade'):
-        count += 1
+        fb_count += 1
     for police in root.iter('{urn:roborescue:map:scenario}policeforce'):
-        count += 1
+        police_count += 1
+    for civ in root.iter("{urn:roborescue:map:scenario}civilian"):
+        civ_count += 1
 
-    return count
+    return amb_count, fb_count, police_count, civ_count
+
+
+def kill_process_by_match(matching_string):
+    import subprocess
+    output = subprocess.run("ps aux", shell=True, capture_output=True).stdout
+    process_list = output.decode("utf-8").split("\n")
+    for process in process_list:
+        if matching_string in process:
+            values = [v for v in process.split(" ") if v]
+            pid = values[1]
+            subprocess.run("kill -9 {}".format(pid), shell=True, capture_output=True)
 
 
 if __name__ == '__main__':
     # bids, rids = read_rescue_gml('/home/okan/rescuesim/scenarios/robocup2019/test2/map/map.gml')
-    # print(bids)
+    # print(bids)    print(process_list)
     # print(rids)
 
-    print(read_num_agents('/home/okan/rescuesim/scenarios/robocup2019/test2/map/scenario.xml'))
+    # print(read_num_agents('/home/okan/rescuesim/scenarios/robocup2019/test2/map/scenario.xml'))
+    kill_process_by_match("rcrs-server")

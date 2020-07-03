@@ -1,6 +1,7 @@
-from rescue_dataset import RescueDataset
+from dataset.rescue_dataset import RescueDataset
+from dataset.inmemory_rescue_dataset import InMemoryRescueDataset
 import os.path
-import torch
+import rescue.dataset.dataset_manager as dataset_manager
 
 
 def create_graph_str(data):
@@ -104,7 +105,7 @@ def test_null_target_selection():
 
 
 def get_notrandom_notnull(train_dataset, test_dataset, node_classification):
-    from inmemory_rescue_dataset import InMemoryRescueDataset
+    from dataset.inmemory_rescue_dataset import InMemoryRescueDataset
 
     data_list = []
     for data_item in train_dataset:
@@ -135,7 +136,82 @@ def get_notrandom_notnull(train_dataset, test_dataset, node_classification):
            InMemoryRescueDataset(test_data_list, node_classification=node_classification)
 
 
+def get_notrandom(dataset, node_classification):
+    data_list = []
+    for data_item in dataset:
+        if data_item.info_map['type'] == 'random':
+            continue
 
+        data_list.append(data_item)
+
+    return InMemoryRescueDataset(data_list, node_classification=node_classification)
+
+
+def get_notnull(dataset, node_classification):
+    if node_classification:
+        import sys
+        print("get_notnull only works for non node classification")
+        sys.exit(1)
+
+    data_list = []
+    for data_item in dataset:
+        if data_item.y.item() == 0:
+            continue
+        data_list.append(data_item)
+
+    return InMemoryRescueDataset(data_list, node_classification=node_classification)
+
+
+def increase_key(class_count, key):
+    if key in class_count:
+        class_count[key] += 1
+    else:
+        class_count[key] = 1
+
+
+def calculate_class_distribution(dataset):
+    class_count = {}
+    for i in range(len(dataset)):
+        data = dataset[i]
+        if dataset.node_classification:
+            for node_class in data.y:
+                increase_key(class_count, node_class)
+        else:
+            increase_key(class_count, data.y.item())
+
+    # normalize
+    total_classes = 0
+    for class_idx in class_count:
+        total_classes += class_count[class_idx]
+
+    for class_idx in class_count:
+        class_count[class_idx] = class_count[class_idx] / total_classes
+
+    return {k: v for k, v in sorted(class_count.items(), key=lambda item: item[1], reverse=True)}
+
+
+def save_for_inmemory_dataset():
+    scn_list = ["test"+str(i) for i in range(400)]
+    train_dataset = dataset_manager.get_dataset("/home/okan/rescuesim/rcrs-server/dataset", scn_list, read_map_info=True,
+                                node_classification=False, agent_type="firebrigade", scn_dir="test", team="ait")
+
+    scn_list = ["test" + str(i) for i in range(400, 500)]
+    test_dataset = dataset_manager.get_dataset("/home/okan/rescuesim/rcrs-server/dataset", scn_list, read_map_info=True,
+                                node_classification=False, agent_type="firebrigade", scn_dir="test", team="ait")
+    print(len(train_dataset))
+    print(len(test_dataset))
+
+    train_notnull_dataset = get_notnull(train_dataset, train_dataset.node_classification)
+    train_notnull_dataset.save("train_notnull_dataset.pt")
+
+    test_notnull_dataset = get_notnull(test_dataset, test_dataset.node_classification)
+    test_notnull_dataset.save("test_notnull_dataset.pt")
+
+    train_notnull_notrandom_dataset = get_notrandom(train_notnull_dataset, train_notnull_dataset.node_classification)
+    train_notnull_notrandom_dataset.save("train_notnull_notrandom_dataset.pt")
+
+    test_notnull_notrandom_dataset = get_notrandom(test_notnull_dataset, test_notnull_dataset.node_classification)
+    test_notnull_notrandom_dataset.save("test_notnull_notrandom_dataset.pt")
 
 
 if __name__ == "__main__":
@@ -144,8 +220,12 @@ if __name__ == "__main__":
     # test_fieryness_target_selection()
     # print_raw_fieryness_and_target()
     # test_null_target_selection()
-    import train
-    train_dataset, test_dataset = train.get_datasets()
-    train_dataset, test_dataset = get_notrandom_notnull(train_dataset, test_dataset, train.node_classification)
-    train_dataset.save('train_dataset.pt')
-    test_dataset.save('test_dataset.pt')
+    # save_for_inmemory_dataset()
+    train_dataset = InMemoryRescueDataset([])
+    train_dataset.load("train_notnull_notrandom_dataset.pt")
+    print(len(train_dataset))
+
+    test_dataset = InMemoryRescueDataset([])
+    test_dataset.load("test_notnull_notrandom_dataset.pt")
+    print(len(test_dataset))
+

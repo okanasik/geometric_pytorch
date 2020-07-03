@@ -1,15 +1,19 @@
-from rescue_dataset import RescueDataset
+from dataset.rescue_dataset import RescueDataset
+import rescue.dataset.data_adapter as data_adapter
 
 
 class RescueDatasetList(RescueDataset):
-    def __init__(self, dataset_list):
-        self.metadata = {}
+    def __init__(self, dataset_list, max_cache_size=10000):
+        metadata = {}
         for dataset in dataset_list:
             for key in dataset.metadata:
-                self.metadata[key] = dataset.metadata[key]
+                metadata[key] = dataset.metadata[key]
+
+        self.index_to_filename, self.index_to_inner_index, self.graph_count = \
+            data_adapter.create_index_lookup(metadata)
 
         self.cache = {}
-        self.max_cache_size = 10000
+        self.max_cache_size = max_cache_size
         self.node_classification = dataset_list[0].node_classification
         self.root = dataset_list[0].root
         self.read_info_map = dataset_list[0].read_info_map
@@ -21,23 +25,15 @@ class RescueDatasetList(RescueDataset):
         if idx < 0 or idx > self.len():
             raise IndexError()
 
-        filenames = sorted(self.metadata.keys())
-        for filename in filenames:
-            count = self.metadata[filename]["num_graph"]
-            if idx < count:
-                data_list = self.read_raw_dataset_file(filename)
-                data = data_list[idx]
-                if self.pre_transform is not None:
-                    data = self.pre_transform(data)
-                return data
-            else:
-                idx -= count
+        filename = self.index_to_filename[idx]
+        data_list = self.read_raw_dataset_file(filename)
+        data = data_list[self.index_to_inner_index[idx]]
+        if self.pre_transform is not None:
+            data = self.pre_transform(data)
+        return data
 
     def len(self):
-        count = 0
-        for filename_key in self.metadata:
-            count += self.metadata[filename_key]["num_graph"]
-        return count
+        return self.graph_count
 
     @property
     def num_classes(self):
@@ -51,10 +47,10 @@ class RescueDatasetList(RescueDataset):
 
 
 if __name__ == '__main__':
-    dataset = RescueDataset("/home/okan/rescuesim/rcrs-server/dataset", "firebrigade", comp="robocup2019",
+    dataset = RescueDataset("/home/okan/rescuesim/rcrs-server/dataset.old", "firebrigade", comp="robocup2019",
                             scenario="test2",
                             team="ait", node_classification=False)
-    dataset1 = RescueDataset("/home/okan/rescuesim/rcrs-server/dataset", "firebrigade", comp="robocup2019",
+    dataset1 = RescueDataset("/home/okan/rescuesim/rcrs-server/dataset.old", "firebrigade", comp="robocup2019",
                                  scenario="test3",
                                  team="ait", node_classification=False)
 
